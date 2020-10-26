@@ -32,28 +32,32 @@
 
     <footer class="h-64 w-full shadow shadow-2xl mt-10"> 
         <div class="lg:container lg:mx-auto h-full flex">
-            <div class="flex-1 p-1">
-                <h2 class=" text-3xl text-gray-400 font-serif">Todos os cursos da plataforma</h2>
-                <ul class="p-1">
-                    
-                    @foreach ($all_courses as $key => $course)
-                        @if($key != 7)
-                            <li><a class="text-gray-300 hover:text-gray-400" href="{{url('/curso/'.$course->slug)}}">{{$course->name}}</a></li>
-                        @endif
-                        @if($key === 7)
-                            <li><a class="text-gray-400 hover:text-gray-500" href="{{url('/cursos')}}">Ver todos</a></li>
-                            @break
-                        @endif
-                    @endforeach
-                </ul>
+            <div class="flex-1 p-1 flex justify-center">
+                <div>
+                    <h2 class=" text-3xl text-gray-400 font-serif">Todos os cursos da plataforma</h2>
+                    <ul class="p-1">
+                        
+                        @foreach ($all_courses as $key => $course)
+                            @if($key != 7)
+                                <li><a class="text-gray-300 hover:text-gray-400" href="{{url('/curso/'.$course->slug)}}">{{$course->name}}</a></li>
+                            @endif
+                            @if($key === 7)
+                                <li><a class="text-gray-400 hover:text-gray-500" href="{{url('/cursos')}}">Ver todos</a></li>
+                                @break
+                            @endif
+                        @endforeach
+                    </ul>
+                </div>
             </div>
-            <div class="flex-1 p-1">
-                <h2 class=" text-3xl text-gray-400 font-serif">Contato</h2>
-                <ul class="p-1">
-                    <li class="text-gray-300">E-mail:<a href="#"> samuelvieiradasilva96@hotmail.com</a></li>
-                    <li class="text-gray-300"><a href="#">Contato pela plataforma</a></li>
-                    <li class="text-gray-300">Telefone: (22) 992747637</li>
-                </ul>
+            <div class="flex-1 p-1 flex justify-center">
+                <div>
+                    <h2 class=" text-3xl text-gray-400 font-serif">Contato</h2>
+                    <ul class="p-1">
+                        <li class="text-gray-300">E-mail:<a href="#"> samuelvieiradasilva96@hotmail.com</a></li>
+                        <li class="text-gray-300"><a href="#">Contato pela plataforma</a></li>
+                        <li class="text-gray-300">Telefone: (22) 992747637</li>
+                    </ul>
+                </div>
             </div>
         </div>        
     </footer>

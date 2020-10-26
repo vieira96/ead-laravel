@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
+use App\Http\Controllers\CampusController;
 
 
 /*
@@ -18,18 +19,19 @@ use App\Http\Controllers\UserController;
 |
 */
 
+Route::get('/', HomeController::class);
 
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class, 'loginAction']);
 Route::get('/register', [LoginController::class, 'register'])->name('register');
 Route::post('/register', [LoginController::class, 'registerAction']);
 
-Route::get('/', [HomeController::class, 'index'])->name('home');
-
 Route::get('/profile', [UserController::class, 'index'])->name('profile');
 Route::post('/profile', [UserController::class, 'editAction']);
 
-Route::get('/teste/{slug}', [HomeController::class, 'teste']);
+Route::get('/campus', [CampusController::class, 'index'])->name('campus');
+
+Route::get('/campus/{slug}', [CampusController::class, 'cursoIndex']);
 
 Route::get('/logout', [LoginController::class, 'logout']);
 
