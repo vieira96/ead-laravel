@@ -13,6 +13,12 @@ class HomeController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
+        $this->middleware('registered', ['only' => ['teste', 'a']]);
+    }
+
+    public function teste()
+    {
+        dd('entrei');
     }
 
     public function index()

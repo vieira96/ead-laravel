@@ -29,5 +29,7 @@ Route::get('/', [HomeController::class, 'index'])->name('home');
 Route::get('/profile', [UserController::class, 'index'])->name('profile');
 Route::post('/profile', [UserController::class, 'editAction']);
 
+Route::get('/teste/{slug}', [HomeController::class, 'teste']);
+
 Route::get('/logout', [LoginController::class, 'logout']);
 
