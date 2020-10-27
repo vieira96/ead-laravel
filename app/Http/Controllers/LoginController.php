@@ -30,7 +30,7 @@ class LoginController extends Controller
         $creds = $request->only('email', 'password');
         if($creds['email'] && $creds['password']){
             if(Auth::attempt($creds)) {
-                return redirect('campus');
+                return redirect('/');
             } else {
                 $request->session()->flash('error', 'Nenhum úsuario encontrado com esses dados.');
                 return redirect('login');

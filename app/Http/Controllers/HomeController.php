@@ -10,6 +10,10 @@ class HomeController extends Controller
 
     public function __invoke()
     {
-        return view('home');
+        $user = Auth::user();
+
+        return view('home', [
+            'user' => $user
+        ]);
     }
 }

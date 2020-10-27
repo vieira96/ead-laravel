@@ -1,1 +1,7 @@
-<h1>home</h1>
+@extends('layouts.app')
+
+@section('title', 'Home')
+
+@section('content')
+    
+@endsection
