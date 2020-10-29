@@ -16,8 +16,12 @@
 }
 
 .star {
-	cursor: pointer;
 	font-size: 20px;
+}
+
+.star-2 {
+  cursor: pointer;
+  font-size: 20px;
 }
 
 .rating-area-int {

@@ -24,15 +24,15 @@
 					<span class="text-white font-light">3,6</span>
 					<div class="estrelas">
 						<label class="star" for="cm_star-1"><i class="fa"></i></label>
-						<input type="radio" id="cm_star-1" name="fb" value="1"/>
+						<input type="radio" id="cm_star-1" name="fb" value="1" disabled/>
 						<label class="star" for="cm_star-2"><i class="fa"></i></label>
-						<input type="radio" id="cm_star-2" name="fb" value="2" checked/>
+						<input type="radio" id="cm_star-2" name="fb" value="2" disabled/>
 						<label class="star" for="cm_star-3"><i class="fa"></i></label>
-						<input type="radio" id="cm_star-3" name="fb" value="3"/>
+						<input type="radio" id="cm_star-3" name="fb" value="3" disabled checked/>
 						<label class="star" for="cm_star-4"><i class="fa"></i></label>
-						<input type="radio" id="cm_star-4" name="fb" value="4"/>
+						<input type="radio" id="cm_star-4" name="fb" value="4" disabled/>
 						<label class="star" for="cm_star-5"><i class="fa"></i></label>
-						<input type="radio" id="cm_star-5" name="fb" value="5"/>
+						<input type="radio" id="cm_star-5" name="fb" value="5" disabled/>
 					</div>
 				</div>
 			</div>
