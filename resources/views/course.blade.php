@@ -7,13 +7,13 @@
 <div class="lg:container lg:mx-auto mt-10 mb-10">
 	<div class="lg:flex">
 		<div class="lg:flex-shrink-0 flex justify-center items-center">
-			<img style="width: 300px; height: 300px;" class="rounded-lg transition duration-500 transform hover:-translate-y-1 hover:scale-110" src="{{asset('image/'.$course->image)}}" width="448" height="299">
+			<img style="width: 500px; height: 300px;" class="rounded-lg transition duration-500 transform hover:-translate-y-1 hover:scale-110" src="{{asset('image/'.$course->image)}}" width="448" height="299">
 		</div>
 
-		<div class="mt-4 md:mt-0 md:ml-6 flex justify-center items-center flex-col flex-1">
+		<div class="mt-4 md:mt-0 md:ml-6 flex justify-center items-center flex-col flex-1 pl-3 pr-3">
 			<div class="uppercase tracking-wide text-sm text-gray-400 font-bold">Categoria: Programação</div>
-			<p class="block mt-1 text-lg leading-tight font-light text-gray-300">Nome do curso: {{$course->name}}</p>
-			<p class="mt-2 text-gray-200 font-light break-words">Descrição: {{$course->description}}</p>
+			<p class="block mt-1 text-lg leading-tight font-light text-gray-300">{{$course->name}}</p>
+			<p class="mt-2 text-gray-200 font-light break-words">{{$course->description}}</p>
 			@if($user)
 				@if($is_student)
 					<a class="transition duration-300 transform hover:-translate-y-1 hover:scale-110 text-white border p-2 rounded-3xl border-gray-300 mt-3 bg-gray-600" href="{{url('campus/'.$course->slug)}}">Ir para o curso</a>

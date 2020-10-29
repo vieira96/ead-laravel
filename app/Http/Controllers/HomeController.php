@@ -54,6 +54,19 @@ class HomeController extends Controller
 
     public function signup($slug)
     {
-        dd($slug);
+        $user = Auth::user();
+        $course = Course::select()->where('slug', $slug)->first();
+        if($course) {
+            $is_student = StudentCourse::select()->where('course_id', $course->id)->where('student_id', $user->id)->first();
+            if($is_student) {
+                return redirect('/campus/'.$slug);
+            }
+            $new_course = new StudentCourse();
+            $new_course->course_id = $course->id;
+            $new_course->student_id = $user->id;
+            $new_course->save();
+            
+            return redirect('/campus/'.$slug);
+        }
     }
 }
