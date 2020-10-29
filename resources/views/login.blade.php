@@ -14,6 +14,7 @@
         
         <!-- Styles -->
         <link href="/css/app.css" rel="stylesheet">
+        <link href="/css/style.css" rel="stylesheet">
     </head>
 
     <body class="flex items-center justify-center min-h-screen bg-platform-900">
