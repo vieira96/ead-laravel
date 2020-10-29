@@ -41,9 +41,14 @@
                     <input class="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-3 leading-tight focus:outline-none focus:bg-white" name="password" type="password" placeholder="********">
                 </div>
                 <div class="flex items-center justify-between">
-                    <button class="bg-platform-200 hover:bg-platform-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
-                        Entrar
-                    </button>
+                    <div>
+                        <button class="bg-platform-200 hover:bg-platform-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                            Entrar
+                        </button>
+                        <a href="{{url('/')}}" class="text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline border border-white" type="submit">
+                            Cancelar
+                        </a>
+                    </div>
                     <a class="inline-block align-baseline font-bold text-sm text-white hover:text-gray-400" href="{{url('register')}}">
                         Cadastre-se aqui.
                     </a>

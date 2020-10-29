@@ -82,9 +82,14 @@
             <div class="md:flex md:items-center">
               <div class="md:w-1/3"></div>
               <div class="md:w-2/3">
-                <button class="shadow bg-platform-200 hover:bg-platform-300 focus:shadow-outline focus:outline-none text-white font-bold py-2 px-4 rounded mb-3" type="submit">
-                  Cadastrar
-                </button>
+                <div>
+                  <button class="bg-platform-200 hover:bg-platform-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                      Cadastrar 
+                  </button>
+                  <a href="{{url('/')}}" class="text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline border border-white" type="submit">
+                      Cancelar
+                  </a>
+                </div>
                 <a class="inline-block align-baseline font-bold text-sm text-white hover:text-gray-400" href="{{url('login')}}">
                     Já tem conta? Fazer Login.
                 </a>

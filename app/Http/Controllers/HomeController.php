@@ -12,6 +12,11 @@ use App\Models\StudentCourse;
 class HomeController extends Controller
 {
 
+    public function __construct()
+    {
+        $this->middleware('auth', ['only' => ['signup']]);
+    }
+
     public function index()
     {
         $user = Auth::user();
@@ -28,8 +33,10 @@ class HomeController extends Controller
         $is_student = false;
         $user = Auth::user();
         $course = Course::select()->where('slug', $slug)->first();
+        if(!$course){
+            return redirect('/');
+        }
         $courses = Course::select()->get();
-
         if($user){
             $is_student = StudentCourse::select()->where('course_id', $course->id)->where('student_id', $user->id)->first();
             if($is_student) {
@@ -43,5 +50,10 @@ class HomeController extends Controller
             'course_list' => $courses,
             'course' => $course
         ]);
+    }
+
+    public function signup($slug)
+    {
+        dd($slug);
     }
 }

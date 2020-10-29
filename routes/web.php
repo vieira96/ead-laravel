@@ -19,7 +19,8 @@ use App\Http\Controllers\CampusController;
 |
 */
 
-Route::get('/', [HomeController::class, 'index']);
+Route::get('/', [HomeController::class, 'index'])->name('home');
+Route::get('/{slug}/signup', [HomeController::class, 'signup']);
 
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class, 'loginAction']);
@@ -31,9 +32,7 @@ Route::post('/profile', [UserController::class, 'editAction']);
 
 Route::get('/campus', [CampusController::class, 'index'])->name('campus');
 
-Route::get('/campus/{slug}', [CampusController::class, 'cursoIndex']);
-
-Route::get('/cursos', [CourseController::class]);
+Route::get('/campus/{slug}', [CampusController::class, 'cursoIndex'])->middleware('registered');
 
 Route::get('/logout', [LoginController::class, 'logout']);
 

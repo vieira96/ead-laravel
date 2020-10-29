@@ -7,7 +7,7 @@
         <div class="lg:container lg:mx-auto flex w-full">
             <div class="flex flex-col h-full justify-center flex-1 pl-2">
                 <h2 class=" text-2xl text-white font-light">Olá, {{$first_name}}</h2>
-                <h3 class="font-light text-white">Você está matriculado em {{count($course_list)}} cursos.</h3>
+                <h3 class="font-light text-white">Você está matriculado em {{count($course_list)}} @if(count($course_list) > 1)cursos. @else curso. @endif</h3>
             </div>
             <div class="flex h-full flex-1 items-center justify-end">
                 <a href="#"><img class=" w-12" src="{{asset('image/message.svg')}}"></a>
@@ -42,7 +42,7 @@
                                 <div class="font-bold text-xl text-gray-400 mb-2 text-3xl">{{$course->name}}</div>
                             </div>
                             <div style="width: 80%" class="px-6 pt-4 pb-2 flex flex-col">
-                                <a href="{{url('/curso/'.$course->slug)}}"><span class="rounded-full px-3 py-1 text-sm font-semibold text-gray-300 mr-2 mb-2 border border-gray-500 w-full flex justify-center">Ir para o curso</span></a>
+                                <a href="{{url('/campus/'.$course->slug)}}"><span class="rounded-full px-3 py-1 text-sm font-semibold text-gray-300 mr-2 mb-2 border border-gray-500 w-full flex justify-center">Ir para o curso</span></a>
                                 <span class="rounded-full px-3 py-1 text-sm font-semibold text-gray-300 mr-2 mb-2 border border-gray-500 w-full flex justify-center">100%</span>
                             </div>
                         </div>
@@ -57,12 +57,12 @@
         <div class="lg:container lg:mx-auto h-full flex">
             <div class="flex-1 p-1 flex justify-center">
                 <div>
-                    <h2 class=" text-3xl text-gray-400 font-serif">Cursos da plataforma</h2>
+                    <h2 class=" text-3xl text-gray-400 font-serif">Últimos cursos adicionados na plataforma</h2>
                     <ul class="p-1">
                         
                         @foreach ($all_courses as $key => $course)
                             @if($key != 7)
-                                <li><a class="text-gray-300 hover:text-gray-400" href="{{url('/curso/'.$course->slug)}}">{{$course->name}}</a></li>
+                                <li><a class="text-gray-300 hover:text-gray-400" href="{{url('/'.$course->slug)}}">{{$course->name}}</a></li>
                             @endif
                             @if($key === 7)
                                 <li><a class="text-gray-400 hover:text-gray-500" href="{{url('/cursos')}}">Ver todos</a></li>

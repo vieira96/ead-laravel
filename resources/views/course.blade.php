@@ -14,10 +14,16 @@
 			<div class="uppercase tracking-wide text-sm text-gray-400 font-bold">Categoria: Programação</div>
 			<p class="block mt-1 text-lg leading-tight font-light text-gray-300">Nome do curso: {{$course->name}}</p>
 			<p class="mt-2 text-gray-200 font-light break-words">Descrição: {{$course->description}}</p>
-			@if($is_student)
-				<a class="transition duration-300 transform hover:-translate-y-1 hover:scale-110 text-white border p-2 rounded-3xl border-gray-300 mt-3 bg-gray-600" href="{{url('campus/'.$course->slug)}}">Ir para o curso</a>
+			@if($user)
+				@if($is_student)
+					<a class="transition duration-300 transform hover:-translate-y-1 hover:scale-110 text-white border p-2 rounded-3xl border-gray-300 mt-3 bg-gray-600" href="{{url('campus/'.$course->slug)}}">Ir para o curso</a>
+				@else
+					<a class="transition duration-300 transform hover:-translate-y-1 hover:scale-110 text-white border p-2 rounded-3xl border-gray-300 mt-3 bg-gray-600" href="{{url($course->slug.'/signup')}}">Inscrever-se</a>
+				@endif
 			@else
-				<a class="transition duration-300 transform hover:-translate-y-1 hover:scale-110 text-white border p-2 rounded-3xl border-gray-300 mt-3 bg-gray-600" href="{{url($course->slug.'/signup')}}">Inscrever-se</a>
+				<a class="transition duration-300 transform hover:-translate-y-1 hover:scale-110 text-white border p-2 rounded-3xl border-gray-300 mt-3 bg-gray-600" href="{{url('/register')}}">Cadastre-se para ter acesso ao curso</a>
+				<p class="text-white">Ou</p>
+				<a class="transition duration-300 transform hover:-translate-y-1 hover:scale-110 text-white border p-2 rounded-3xl border-gray-300 mt-3 bg-gray-600" href="{{url('/login')}}">Entre com a sua conta</a>
 			@endif
 			<div class="flex justify-center w-full mt-3 rating-area">
 				<div class="rating-area-int">

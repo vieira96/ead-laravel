@@ -24,12 +24,11 @@ class Registered
         $user = Auth::user();
         $course = Course::where('slug', $slug)->first();
         if(!$course) {
-            return redirect('/');
+            return redirect('/campus');
         }
-        $student_course = StudentCourse::select()->where('course_id', $course->id)->where('student_id', $user->id)->get();
+        $student_course = StudentCourse::select()->where('course_id', $course->id)->where('student_id', $user->id)->first();
         if(!$student_course) {
-            //TODO redirecionar para uma rota caso nao seja inscrito no curso
-            dd('erro');
+            return redirect('/'.$slug);
         }
 
         return $next($request);
