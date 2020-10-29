@@ -31,9 +31,7 @@
         </div>
     </header>
 
-    <div>
-        @yield('content')
-    </div>
+    @yield('content')
 
     <footer class="w-full shadow shadow-2xl h-16 flex items-center justify-center"> 
         footer     

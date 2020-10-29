@@ -6,12 +6,13 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Course;
+use App\Models\StudentCourse;
 
 
 class HomeController extends Controller
 {
 
-    public function __invoke()
+    public function index()
     {
         $user = Auth::user();
         $courses = Course::select()->get();
@@ -19,6 +20,28 @@ class HomeController extends Controller
         return view('home', [
             'user' => $user,
             'course_list' => $courses
+        ]);
+    }
+
+    public function courseInfo($slug)
+    {
+        $is_student = false;
+        $user = Auth::user();
+        $course = Course::select()->where('slug', $slug)->first();
+        $courses = Course::select()->get();
+
+        if($user){
+            $is_student = StudentCourse::select()->where('course_id', $course->id)->where('student_id', $user->id)->first();
+            if($is_student) {
+                $is_student = true;
+            }
+        }
+
+        return view('course', [
+            'user' => $user,
+            'is_student' => $is_student,
+            'course_list' => $courses,
+            'course' => $course
         ]);
     }
 }

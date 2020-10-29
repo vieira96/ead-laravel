@@ -19,7 +19,7 @@ use App\Http\Controllers\CampusController;
 |
 */
 
-Route::get('/', HomeController::class);
+Route::get('/', [HomeController::class, 'index']);
 
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class, 'loginAction']);
@@ -33,5 +33,8 @@ Route::get('/campus', [CampusController::class, 'index'])->name('campus');
 
 Route::get('/campus/{slug}', [CampusController::class, 'cursoIndex']);
 
+Route::get('/cursos', [CourseController::class]);
+
 Route::get('/logout', [LoginController::class, 'logout']);
 
+Route::get('/{slug}', [HomeController::class, 'courseInfo']);

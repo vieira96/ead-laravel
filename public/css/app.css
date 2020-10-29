@@ -1,3 +1,27 @@
+.w-course {
+	width: 24%;
+}
+.estrelas input[type=radio] {
+	display: none;
+}
+.estrelas label i.fa:before {
+	content:'\f005';
+	color: #FC0;
+}
+.estrelas input[type=radio]:checked ~ label i.fa:before {
+	color: #CCC;
+}
+
+.star {
+	cursor: pointer;
+	font-size: 20px;
+}
+
+.rating-area-int {
+	display: flex;
+	align-items: center;
+	flex-direction: column;
+}
 
 .hover\:bg-platform-900:hover {
   background-color: #38322e;
@@ -61,6 +85,12 @@
 
 .bg-platform-200 {
   background-color: #87786E;
+}
+
+@media (max-width: 640px) {	
+	.w-course {
+		width: 50% !important;
+	}
 }
 
 /*! normalize.css v8.0.1 | MIT License | github.com/necolas/normalize.css */

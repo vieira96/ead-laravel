@@ -5,7 +5,7 @@
 @section('content')
     <div class="bg-platform-800 h-40 flex">
         <div class="lg:container lg:mx-auto flex w-full">
-            <div class="flex flex-col h-full justify-center flex-1">
+            <div class="flex flex-col h-full justify-center flex-1 pl-2">
                 <h2 class=" text-2xl text-white font-light">Olá, {{$first_name}}</h2>
                 <h3 class="font-light text-white">Você está matriculado em {{count($course_list)}} cursos.</h3>
             </div>
@@ -31,11 +31,11 @@
     </div>
     @if(count($course_list) > 0)
         <div class="lg:container lg:mx-auto pt-5">
-            <h1 class="text-3xl font-light text-white pb-5">Meus cursos</h1>
+            <h1 class="text-3xl font-light text-white pb-5 pl-2">Meus cursos</h1>
             <div class="flex flex-wrap justify-items-stretch">
 
                 @foreach($course_list as $course)
-                    <div class="w-1/4 p-2">
+                    <div class="w-course p-2">
                         <div class="min-h-full max-w-sm rounded overflow-hidden shadow-lg flex items-center flex-col">
                             <img style="height: 200px;" class="w-full" src="{{asset('image/'.$course->image)}}">
                             <div class="px-6 py-4">
