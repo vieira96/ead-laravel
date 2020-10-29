@@ -37,19 +37,6 @@
                     
                 </div>
 
-                <div class=" mt-5 w-course p-2 flex flex-col">
-                    <div class="min-h-full max-w-sm rounded overflow-hidden shadow-lg flex items-center flex-col">
-                        <img style="height: 200px;" class="w-full" src="{{asset('image/'.$course->image)}}">
-                        <p class="px-6 py-4font-bold text-xl text-gray-400 mb-2 text-3xl">{{$course->name}}</p>
-                        <p class="px-6 pt-4 pb-2 break-words">{{$course->description}}aaaaaa aaaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaa</p>
-                    </div>
-
-                    <div class="bg-green-300 max-w-sm w-full">
-                        <a class="flex justify-center items-center w-full text-green-600" href="{{url($course->slug)}}">Ver Curso</a>
-                    </div>
-                    
-                </div>
-
             @endforeach
 
         </div>
