@@ -1,3 +1,6 @@
+.course {
+  min-height: calc(100vh - 14rem);
+}
 
 .checked {
   color: #FC0;
@@ -102,6 +105,7 @@
 .bg-platform-200 {
   background-color: #87786E;
 }
+
 
 @media (max-width: 640px) {	
 	.w-course {
