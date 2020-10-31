@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Course;
+use App\Models\Rating;
 use App\Models\StudentCourse;
 
 class CampusController extends Controller
@@ -27,7 +28,7 @@ class CampusController extends Controller
         $split_name = explode(' ',$user->name);
         $first_name = $split_name[0];
 
-        $courses = Course::select()->get();
+        $courses = Course::select()->limit(7)->get();
 
         $student_courses = StudentCourse::select()
             ->leftJoin('courses', 'course_id', '=', 'courses.id' )

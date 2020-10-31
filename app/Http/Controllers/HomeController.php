@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
 use App\Models\Course;
+use App\Models\Rating;
 use App\Models\StudentCourse;
 
 
@@ -20,7 +21,7 @@ class HomeController extends Controller
     public function index()
     {
         $user = Auth::user();
-        $courses = Course::select()->get();
+        $courses = Course::all();
 
         return view('home', [
             'user' => $user,
@@ -36,7 +37,8 @@ class HomeController extends Controller
         if(!$course){
             return redirect('/');
         }
-        $courses = Course::select()->get();
+        
+        $ratings = Rating::select()->where('course_id', $course->id)->get();
         if($user){
             $is_student = StudentCourse::select()->where('course_id', $course->id)->where('student_id', $user->id)->first();
             if($is_student) {
@@ -44,11 +46,15 @@ class HomeController extends Controller
             }
         }
 
+        $rating_average = Rating::select()->where('course_id', $course->id)->avg('stars');
+        $rating_average = round($rating_average);
+
         return view('course', [
             'user' => $user,
             'is_student' => $is_student,
-            'course_list' => $courses,
-            'course' => $course
+            'course' => $course,
+            'ratings' => $ratings,
+            'rating_average' => $rating_average
         ]);
     }
 

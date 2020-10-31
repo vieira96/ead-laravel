@@ -61,12 +61,10 @@
                     <ul class="p-1">
                         
                         @foreach ($all_courses as $key => $course)
-                            @if($key != 7)
+                            @if($key != 6)
                                 <li><a class="text-gray-300 hover:text-gray-400" href="{{url('/'.$course->slug)}}">{{$course->name}}</a></li>
-                            @endif
-                            @if($key === 7)
+                            @else
                                 <li><a class="text-gray-400 hover:text-gray-500" href="{{url('/cursos')}}">Ver todos</a></li>
-                                @break
                             @endif
                         @endforeach
                     </ul>

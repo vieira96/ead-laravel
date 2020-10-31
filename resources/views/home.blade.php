@@ -4,8 +4,8 @@
 
 @section('content')
 
-    <div style="height: 32rem" class="w-full flex justify-center items-center">
-        <div>
+    <div class="lg:container lg:mx-auto">
+        <div style="height: 32rem" class="w-full flex justify-center items-center">
             <div class="lg:flex">
                 <div class="lg:flex-shrink-0 flex justify-center">
                     <img style="width: 400px" class="rounded-md rounded-full" src="https://images.unsplash.com/photo-1556740738-b6a63e27c4df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=448&q=80" width="448" height="299" alt="Woman paying for a purchase">
