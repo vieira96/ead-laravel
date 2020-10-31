@@ -1,3 +1,7 @@
+.profile-content {
+  min-height: calc(100vh - 14rem);
+}
+
 .course {
   min-height: calc(100vh - 14rem);
 }

@@ -3,7 +3,7 @@
 @section('title', 'Profile')
 
 @section('content')
-    <div class="w-full mt-10 mb-10">
+    <div class="w-full mt-10 mb-10 profile-content flex items-center">
         <div class="lg:container lg:mx-auto flex justify-center">
             <form class="w-full max-w-lg" method="POST">
                 @if(!empty($error))
