@@ -82,8 +82,8 @@
             <div class="md:flex md:items-center">
               <div class="md:w-1/3"></div>
               <div class="md:w-2/3">
-                <div>
-                  <button class="bg-platform-200 hover:bg-platform-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">
+                <div class="flex items-center">
+                  <button class="bg-platform-200 hover:bg-platform-300 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline mr-2" type="submit">
                       Cadastrar 
                   </button>
                   <a href="{{url('/')}}" class="text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline border border-white" type="submit">

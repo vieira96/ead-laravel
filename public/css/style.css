@@ -1,3 +1,55 @@
+* {
+  overflow-x: hidden;
+}
+.show {
+  right: 135px;
+  opacity: 1;
+  transition: 1s;
+}
+
+.hide {
+  right: -505px;
+  opacity: 0;
+  transition: 1s;
+}
+
+.ballon {
+  width: 300px; 
+  height: 60px; 
+  background-color: #2e2925; 
+  position: absolute; 
+  top: 65px; 
+  display: flex;
+  align-items: center;
+  padding-left: 5px;
+  border-radius: 20px;
+}
+
+.ballon input {
+  width: 100px; 
+  height: 30px; 
+  border-radius: 10px;
+  padding-left: 5px;
+}
+
+.ballon input[type=submit] {
+  position: absolute; 
+  height: 100%; 
+  width: 40px; 
+  top: 0; 
+  right: 0; 
+  cursor: pointer; 
+  border-radius: 0 20px 20px 0;
+  background-color: #423a34;
+  color: #fff;
+  font-size: 24px;
+}
+
+.ballon input:focus {
+  border: 0;
+  outline: 0;
+}
+
 .profile-content {
   min-height: calc(100vh - 14rem);
 }
@@ -15,7 +67,9 @@
 }
 
 .w-course {
-	width: 24%;
+  width: 24%;
+  margin-right: 10px;
+  box-shadow:0 10px 16px 0 rgba(0,0,0,0.2),0 6px 20px 0 rgba(0,0,0,0.19) !important;
 }
 
 .estrelas input[type=radio] {
@@ -110,10 +164,26 @@
   background-color: #87786E;
 }
 
+@media (max-width: 1024px) {
+  .w-course {
+    width: 32.333%;
+  }
+}
 
-@media (max-width: 640px) {	
+@media (max-width: 768px) {
+  .w-course {
+    width: 48%;
+  }
+}
+
+@media (max-width: 540px) {	
+  
+  .show {
+    right: 110px;    
+  }
+
 	.w-course {
-		width: 50% !important;
+		width: 48%;
   }
   
   .w-ratings {
@@ -121,4 +191,16 @@
     margin: 5px;
   }
 
+}
+
+@media (max-width: 513px) {
+  .w-course {
+    width: 47%;
+  }
+}
+
+@media (max-width: 414px) {
+  .w-course {
+    width: 100%;
+  }
 }

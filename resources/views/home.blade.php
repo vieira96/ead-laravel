@@ -21,20 +21,44 @@
 
     <div class="w-full lg:container lg:mx-auto">
         <h1 class=" text-2xl text-white font-light mt-6">Todos os nossos cursos</h1>
-        <div class="flex flex-wrap justify-items-stretch mb-10">
+        <div class="flex flex-wrap justify-items-stretch mb-10 pl-3">
 
             @foreach($course_list as $course)
-                <div class="mt-5 w-course p-2 flex flex-col">
-                    <div class="min-h-full max-w-sm rounded overflow-hidden shadow-lg flex items-center flex-col">
-                        <img style="height: 200px;" class="w-full" src="{{asset('image/'.$course->image)}}">
-                        <p class="px-6 py-4font-bold text-xl text-gray-400 mb-2 text-3xl">{{$course->name}}</p>
-                        <p class="px-6 pt-4 pb-2 break-words">{{$course->description}}aaaaaa aaaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaa</p>
-                    </div>
 
-                    <div class="bg-green-300 max-w-sm w-full">
-                        <a class="flex justify-center items-center w-full text-green-600" href="{{url($course->slug)}}">Ver Curso</a>
+                <div class="flex flex-col w-course mt-5">
+                    <div class="w-full h-full flex flex-col">
+                        <div class="min-h-full rounded overflow-hidden shadow-lg flex items-center flex-col text-gray-300">
+                            <img style="height: 200px;" class="w-full" src="{{asset('image/'.$course->image)}}">
+                            <div class="flex-1 flex flex-col items-center">
+                                <p class="px-6 py-4font-bold text-xl text-gray-400 mb-2 text-3xl">{{$course->name}}</p>
+                                <p class="px-6 pt-4 pb-2 break-words">{{$course->description}}aaaaaa aaaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaa</p>
+                            </div>
+                        </div>
                     </div>
                     
+                    <div class="h-8 w-full">
+                        <div class="bg-green-800 h-full w-full flex justify-center items-center text-gray-300">
+                            <a href="{{url($course->slug)}}">Ver curso</a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="flex flex-col w-course mt-5">
+                    <div class="w-full h-full flex flex-col">
+                        <div class="min-h-full rounded overflow-hidden shadow-lg flex items-center flex-col text-gray-300">
+                            <img style="height: 200px;" class="w-full" src="{{asset('image/'.$course->image)}}">
+                            <div class="flex-1 flex flex-col items-center">
+                                <p class="px-6 py-4font-bold text-xl text-gray-400 mb-2 text-3xl">{{$course->name}}</p>
+                                <p class="px-6 pt-4 pb-2 break-words">{{$course->description}}aaaaaa aaaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaa</p>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="h-8 w-full">
+                        <div class="bg-green-800 h-full w-full flex justify-center items-center text-gray-300">
+                            <a href="{{url($course->slug)}}">Ver curso</a>
+                        </div>
+                    </div>
                 </div>
 
             @endforeach
