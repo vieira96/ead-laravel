@@ -17,11 +17,6 @@ class CampusController extends Controller
         $this->middleware('registered', ['only' => ['cursoIndex', 'a']]);
     }
 
-    public function cursoIndex()
-    {
-        dd('entrei');
-    }
-
     public function index()
     {
         $user = Auth::user();
@@ -42,5 +37,14 @@ class CampusController extends Controller
             'course_list' => $student_courses
         ]);
     }
-    
+
+    public function cursoIndex()
+    {
+        $user = Auth::user();
+
+        return view('campus-course', [
+            'user' => $user
+        ]);
+    }
+
 }

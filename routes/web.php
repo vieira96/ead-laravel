@@ -36,4 +36,4 @@ Route::get('/campus/{slug}', [CampusController::class, 'cursoIndex'])->middlewar
 
 Route::get('/logout', [LoginController::class, 'logout']);
 
-Route::get('/{slug}', [HomeController::class, 'courseInfo']);
+Route::get('/{slug}', [HomeController::class, 'courseInfo']);   

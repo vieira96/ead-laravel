@@ -8,8 +8,8 @@
     <link rel="stylesheet" href="/css/style.css">
     <title>@yield('title')</title>
 </head>
-<body class="min-h-screen bg-platform-900">
-    <header class="flex items-center h-20 shadow shadow-2xl">
+<body class="bg-platform-900">
+    <header class="flex items-center h-20 shadow shadow-lg">
         <div class="lg:container lg:mx-auto w-full">
             <nav class="flex items-center justify-between flex-wrap">
                 <div class="flex items-center flex-shrink-0 text-white w-auto">
@@ -46,11 +46,14 @@
         </div>
     </header>
 
-    @yield('content')
+    <main style="min-height: calc(100vh - 9rem)" class="h-full">
+        @yield('content')
+    </main>
 
     <footer class="w-full shadow shadow-2xl h-16 flex items-center justify-center"> 
         footer     
     </footer>
+    
     <script>
         var login = document.getElementById("login");
         login.addEventListener('click', function(){
