@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/style.css">
-    <title></title>
+    <title>php</title>
 </head>
 <body class="bg-platform-900">
     <header style="width: 100vw" class="flex items-center h-20 shadow shadow-lg fixed">
@@ -64,61 +64,12 @@
                 
             </ul>
         </aside>
-        <div id="main" class="main">
+        <div class="menu"></div>
+        <div class="main">
             
         </div>
     </main>
 
-    
-
-    <script>
-        var aside = document.getElementById("aside");
-        var main = document.getElementById("main");
-        window.onscroll = function() {scrolling()};
-
-        function scrolling() {
-            if (document.body.scrollTop > 78 || document.documentElement.scrollTop > 78) {
-                aside.classList.add("my-fixed");
-            } else {
-                aside.classList.remove("my-fixed");
-            }
-        }
-
-        var acc = document.getElementsByClassName("module");
-
-        for (i = 0; i < acc.length; i++) {
-
-            acc[i].addEventListener("click", function() {
-                /* percorre os elementos que contem a classe accordion e quando achar o que 
-                possuí a classe active, remove e interrompe o loop. */
-                for(j = 0; j < acc.length; j++) {
-                    if(acc[j].classList.contains('active-module')) {
-                        acc[j].classList.remove('active-module');
-                        break;
-                    }
-                }
-                //adiciona a classe actie no item clicado.
-                this.classList.add("active-module");
-
-                //Pega os itens que tem a classe panel
-                var panels = document.getElementsByClassName('class');
-                
-                /*percorre os itens que tem a classe panel para verificar se alguma está com a classe
-                para exibir as aulas e quando encontrar, remove a classe */
-                for(j = 0; j < panels.length; j++) {
-                    if(panels[j].classList.contains('active-class')) {
-                        panels[j].classList.remove('active-class');
-                        break;
-                    }         
-                }
-
-                //pega o proximo elemento após o item clicado e adiciona a classe para exibir o painel.
-                var panel = this.nextElementSibling;
-                panel.classList.add('active-class');
-
-            });
-        }
-
-    </script>
+    <script src="{{asset('js/script.js')}}"></script>
 </body>
 </html>

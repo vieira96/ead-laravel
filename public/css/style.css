@@ -169,6 +169,33 @@ aside {
   width: 16rem;
   position: fixed;
   overflow-y: auto;
+  transition: 1s;
+}
+
+.hide-aside {
+  width: 0;
+  transition: 1s;
+}
+
+.menu {
+  width: 35px;
+  height: 35px;
+  left: 260px;
+  top: 6px;
+  content: '';
+  position: absolute;
+  background-image: url('../image/menu.svg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-color: #2b2726;
+  border: 2px solid #38322e;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.margin-left {
+  left: 2px;
+  transition: 1s;
 }
 
 .main {
@@ -176,15 +203,14 @@ aside {
   overflow-y: auto; 
   height: calc(100vh - 5rem);
   margin-left: 16rem;
+  transition: 1s;
 }
 
-.my-fixed {
-  background-color: #ff0000;
-  position: fixed;
-  top: 0;
-  height: 100vh;
+.expand-main {
+  width: 100vw;
+  margin-left: 0;
+  transition: 1s;
 }
-
 
 .module {
   cursor: pointer;
@@ -209,18 +235,21 @@ aside {
   padding: 8px;
   color: white;
   transition: 1s;
+  overflow-y: hidden;
 }
 
 .class-single:hover {
-  transition: all 1s ease-in-out;
+  transition: all .4s ease-in-out;
   background-color: #2b2726;
   position: relative;
   top:-2px;
-  box-shadow:4px 4px 4px #433c37
+  box-shadow:4px 4px 4px #433c37;
+  
 }
 
 .active-class {
-  height: auto;
+  transition: 1s;
+  height: 100%;
 }
 
 .container-class {

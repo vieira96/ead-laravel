@@ -46,7 +46,7 @@
         </div>
     </header>
 
-    <main style="min-height: calc(100vh - 9rem)" class="h-full">
+    <main style="min-height: calc(100vh - 9rem)">
         @yield('content')
     </main>
 
