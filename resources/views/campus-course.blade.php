@@ -56,7 +56,7 @@
                             <span class="module flex justify-between items-center text-white shadow shadow-lg"><span>{{$module->name}}</span> <span class="text-gray-500">{{count($module->classes)}}</span></span>
                             <div class="class w-full flex flex-col p-5 pt-2">
                                 @foreach($module->classes as $class)
-                                    <a class="class-single w-full shadow shadow-lg flex justify-center items-center" href="">aula 1</a>
+                                    <a class="class-single w-full shadow shadow-lg flex justify-center items-center" href="">{{$class->name}}</a>
                                 @endforeach
                             </div>
                         </div>

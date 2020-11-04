@@ -50,7 +50,13 @@ class CampusController extends Controller
             //crio a chave das aulas e adiciono no modulo
             $modules[$moduleKey]['classes'] = Classe::select()->where('module_id', $moduleData['id'])->get();
         }
-        
+
+        foreach($modules as $module) {
+            foreach($module->classes as $classKey => $classData) {
+                $module->classes->video = Classe::find($classData->id)->video;
+            }
+        }
+
         return view('campus-course', [
             'user' => $user,
             'modules' => $modules,
