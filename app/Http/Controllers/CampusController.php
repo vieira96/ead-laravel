@@ -8,6 +8,8 @@ use Illuminate\Support\Facades\Auth;
 use App\Models\Course;
 use App\Models\Rating;
 use App\Models\StudentCourse;
+use App\Models\Module;
+use App\Models\Classe;
 
 class CampusController extends Controller
 {
@@ -38,12 +40,21 @@ class CampusController extends Controller
         ]);
     }
 
-    public function cursoIndex()
+    public function cursoIndex($slug)
     {
         $user = Auth::user();
-
+        $course = Course::select()->where('slug', $slug)->first();
+        $modules = Module::select()->where('course_id', $course->id)->get(); 
+        
+        foreach($modules as $moduleKey => $moduleData) {
+            //crio a chave das aulas e adiciono no modulo
+            $modules[$moduleKey]['classes'] = Classe::select()->where('module_id', $moduleData['id'])->get();
+        }
+        
         return view('campus-course', [
-            'user' => $user
+            'user' => $user,
+            'modules' => $modules,
+            'course' => $course
         ]);
     }
 

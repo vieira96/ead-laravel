@@ -6,7 +6,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link rel="stylesheet" href="/css/app.css">
     <link rel="stylesheet" href="/css/style.css">
-    <title>php</title>
+    <title>{{$course->slug}}</title>
 </head>
 <body class="bg-platform-900">
     <header style="width: 100vw" class="flex items-center h-20 shadow shadow-lg fixed">
@@ -51,17 +51,18 @@
 
             <ul>
                 <li>
-                    <div class="container-class w-full flex flex-col shadow shadow-lg">   
-                        <span class="module flex justify-center items-center text-white shadow shadow-lg">Intermediario</span>
-                        <div class="class w-full flex flex-col p-5 pt-2">
-                            <a class="class-single w-full shadow shadow-lg flex justify-center items-center" href="">aula 1</a>
-                            <a class="class-single w-full shadow shadow-lg flex justify-center items-center" href="">aula 2</a>
-                            <a class="class-single w-full shadow shadow-lg flex justify-center items-center" href="">aula 3</a>
+                    @foreach($modules as $module)
+                        <div class="container-class w-full flex flex-col shadow shadow-lg">   
+                            <span class="module flex justify-between items-center text-white shadow shadow-lg"><span>{{$module->name}}</span> <span class="text-gray-500">{{count($module->classes)}}</span></span>
+                            <div class="class w-full flex flex-col p-5 pt-2">
+                                @foreach($module->classes as $class)
+                                    <a class="class-single w-full shadow shadow-lg flex justify-center items-center" href="">aula 1</a>
+                                @endforeach
+                            </div>
                         </div>
-                    </div>
+                    @endforeach
                 </li>
 
-                
             </ul>
         </aside>
         <div class="menu"></div>
