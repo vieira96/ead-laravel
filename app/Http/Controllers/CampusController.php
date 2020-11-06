@@ -16,7 +16,7 @@ class CampusController extends Controller
     public function __construct()
     {
         $this->middleware('auth');
-        $this->middleware('registered', ['only' => ['cursoIndex', 'a']]);
+        $this->middleware('registered', ['only' => ['courseIndex', 'courseClass']]);
     }
 
     public function index()
@@ -40,7 +40,7 @@ class CampusController extends Controller
         ]);
     }
 
-    public function cursoIndex($slug)
+    public function courseIndex($slug, $class_name = null)
     {
         $user = Auth::user();
         $course = Course::select()->where('slug', $slug)->first();
@@ -51,16 +51,24 @@ class CampusController extends Controller
             $modules[$moduleKey]['classes'] = Classe::select()->where('module_id', $moduleData['id'])->get();
         }
 
-        foreach($modules as $module) {
-            foreach($module->classes as $classKey => $classData) {
-                $module->classes->video = Classe::find($classData->id)->video;
+        if($class_name) {
+            $class = Classe::select()->where('name', $class_name)->first();
+            if($class) {
+                $class->video = $class->video;
+            } else {
+                return redirect('campus');
             }
+        } else {
+            $class = Classe::select()->where('course_id', $course->id)->first();
+            $class->video = $class->video;
         }
+        
 
         return view('campus-course', [
             'user' => $user,
             'modules' => $modules,
-            'course' => $course
+            'course' => $course,
+            'class1' => $class
         ]);
     }
 

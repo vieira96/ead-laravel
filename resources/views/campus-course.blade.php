@@ -55,8 +55,8 @@
                         <div class="container-class w-full flex flex-col shadow shadow-lg">   
                             <span class="module flex justify-between items-center text-white shadow shadow-lg"><span>{{$module->name}}</span> <span class="text-gray-500">{{count($module->classes)}}</span></span>
                             <div class="class w-full flex flex-col p-5 pt-2">
-                                @foreach($module->classes as $class)
-                                    <a class="class-single w-full shadow shadow-lg flex justify-center items-center" href="">{{$class->name}}</a>
+                                @foreach($module->classes as $class_single)
+                                <a class="class-single w-full shadow shadow-lg flex justify-center items-center" href="{{url('campus/'.$course->slug.'/'.$class_single->name)}}">{{str_replace('-',' ',$class_single->name)}}</a>
                                 @endforeach
                             </div>
                         </div>
@@ -65,9 +65,14 @@
 
             </ul>
         </aside>
+
         <div class="menu"></div>
-        <div class="main">
-            
+        <div class="main flex justify-center items-center">
+            @if($class1)
+                <div style="width: 90%; height: 80vh;">
+                    <iframe width="100%" height="100%" src="{{$class1->video->url}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            @endif
         </div>
     </main>
 

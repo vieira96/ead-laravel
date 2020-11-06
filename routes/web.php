@@ -32,7 +32,7 @@ Route::post('/profile', [UserController::class, 'editAction']);
 
 Route::get('/campus', [CampusController::class, 'index'])->name('campus');
 
-Route::get('/campus/{slug}', [CampusController::class, 'cursoIndex'])->middleware('registered');
+Route::get('/campus/{slug}/{class_name?}', [CampusController::class, 'courseIndex']);
 
 Route::get('/logout', [LoginController::class, 'logout']);
 
