@@ -6,6 +6,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\LoginController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\CampusController;
+use App\Http\Controllers\DashboardController;
 
 
 /*
@@ -35,5 +36,7 @@ Route::get('/campus', [CampusController::class, 'index'])->name('campus');
 Route::get('/campus/{slug}/{class_name?}', [CampusController::class, 'courseIndex']);
 
 Route::get('/logout', [LoginController::class, 'logout']);
+
+Route::get('/dashboard', [DashboardController::class, 'index']);
 
 Route::get('/{slug}', [HomeController::class, 'courseInfo']);   
