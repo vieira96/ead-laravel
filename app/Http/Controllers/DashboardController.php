@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
+use App\Models\Course;
+
 class DashboardController extends Controller
 {
     public function __construct()
@@ -20,6 +22,10 @@ class DashboardController extends Controller
     public function courses()
     {
 
-        return view('dashboard.courses');
+        $courses = Course::all();
+    
+        return view('dashboard.courses', [
+            'courses' => $courses
+        ]);
     }
 }
