@@ -18,6 +18,7 @@
     position: fixed;
     box-shadow: 5px 1px 6px #171616 inset;
     overflow-y: auto;
+    background-color: #171717;
 }
 
 .aside-header {
@@ -84,7 +85,7 @@
 .main {
     flex: 1;
     background-size: cover;
-    height: 100vh;
+    min-height: 100vh;
     margin-left: 280px;
     display: flex;
     flex-direction: column;
@@ -96,8 +97,7 @@
     background-color: #171717;
     height: 30px;
     width: 30px;
-    margin: 2px;
-    box-shadow: 1px 2px 1px 1px #171616;
+    border: 2px solid #232323;
     cursor: pointer;
 }
 
@@ -105,6 +105,7 @@
     width: 100%;
     height: 100%;
 }
+
 
 .main-home {
     width: 100%;
@@ -129,5 +130,93 @@
     background-image: linear-gradient(to bottom, #171616, #232323);
 }
 
+.main-courses {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #171616;
+}
 
+.course-container {
+    display: flex;
+    width: 90%;
+    min-height: 100px;
+    margin-top: 10px;
+    border: 1px solid #232323;
+    flex-wrap: wrap;
+}
 
+.course-info {
+    width: 25%;
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+}
+
+.course-info span {
+    color: #ccc;
+    margin: 5px 0;
+    word-wrap: break-word;
+}
+
+.course-options {
+    flex: 1;
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+.course-options a{
+    text-decoration: none;
+    color: #ccc;
+}
+
+.course-options--item {
+    margin-right: 10px;
+    padding: 10px;
+    background-color: #232323;
+    border-radius: 10px;
+}
+
+.show-aside {
+    width: 280px !important;
+    transition: 1s;   
+}
+
+@media (max-width: 768px) {
+    .main {
+        margin-left: 0;
+    }
+
+    .aside {
+        width: 0;
+        transition: 1s;
+    }
+
+    .fa-bars {
+        display: block;
+        position: fixed;
+    }
+}
+
+@media (max-width: 414px) {
+    .course-info {
+        width: 100%;
+    }
+
+    .item {
+        width: 100%;
+    }
+
+    .course-options {
+        justify-content: center;
+    }
+
+    .course-options--item {
+        margin: 5px;
+    }
+}

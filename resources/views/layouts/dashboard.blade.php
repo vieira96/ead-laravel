@@ -27,7 +27,7 @@
                 <div class="aside-menu">
                     <nav>
                         <ul>
-                            <li><a href="">Home</a></li>
+                            <li><a href="{{url('/dashboard')}}">Home</a></li>
                             <li><a href="{{url('/dashboard/courses')}}">Cursos</a></li>
                             <li><a href="">Usuarios</a></li>
                         </ul>
@@ -46,5 +46,6 @@
         </main>
         
     </section>
+    <script src="{{asset('/js/dashboard.js')}}"></script>
 </body>
 </html>

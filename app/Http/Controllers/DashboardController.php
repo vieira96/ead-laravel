@@ -16,4 +16,10 @@ class DashboardController extends Controller
     {
         return view('dashboard.home');
     }
+
+    public function courses()
+    {
+
+        return view('dashboard.courses');
+    }
 }

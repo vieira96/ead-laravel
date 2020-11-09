@@ -38,5 +38,6 @@ Route::get('/campus/{slug}/{class_name?}', [CampusController::class, 'courseInde
 Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
+Route::get('/dashboard/courses', [DashboardController::class, 'courses']);
 
 Route::get('/{slug}', [HomeController::class, 'courseInfo']);   
