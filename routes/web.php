@@ -39,5 +39,7 @@ Route::get('/logout', [LoginController::class, 'logout']);
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('/dashboard/courses', [DashboardController::class, 'courses']);
+Route::get('/dashboard/new', [DashboardController::class, 'newCourse']);
+Route::get('/dashboard/course/edit/{id}', [DashboardController::class, 'editCourse']);
 
 Route::get('/{slug}', [HomeController::class, 'courseInfo']);   

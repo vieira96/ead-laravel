@@ -87,8 +87,6 @@
     background-size: cover;
     min-height: 100vh;
     margin-left: 280px;
-    display: flex;
-    flex-direction: column;
 }
 
 .fa-bars {
@@ -182,10 +180,18 @@
     border-radius: 10px;
 }
 
+.main-edit {
+    width: 100%;
+    height: 100%;
+    background-color: #ccc;
+}
+
 .show-aside {
     width: 280px !important;
     transition: 1s;   
 }
+
+
 
 @media (max-width: 768px) {
     .main {
@@ -200,6 +206,12 @@
     .fa-bars {
         display: block;
         position: fixed;
+    }
+}
+
+@media( max-width: 540px) {
+    .course-info {
+        width: 40%;
     }
 }
 
