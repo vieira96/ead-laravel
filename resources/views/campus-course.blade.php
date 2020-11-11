@@ -19,6 +19,9 @@
                 <div class="flex justify-end flex-grow lg:flex lg:items-center lg:w-auto flex-1">
                     <div class="flex">
                         @if($user)
+                            @if($user->office > 0)
+                                <a href="{{url('dashboard')}}" class="text-sm px-4 py-1 leading-none text-gray-400 mt-4 lg:mt-0 border rounded-2xl border-gray-200 bg-platform-800 mr-3 flex justify-center items-center">Dashboard</a>
+                            @endif
                             <a href="{{url('campus')}}" class="text-sm px-4 py-1 leading-none text-gray-400 mt-4 lg:mt-0 border rounded-2xl border-gray-200 bg-platform-800 mr-3 flex justify-center items-center">Campus</a>
                             <a href="{{url('profile')}}" class="text-sm px-4 py-1 leading-none text-white mt-4 lg:mt-0 border rounded-2xl border-gray-200 flex justify-center items-center">Meu perfil</a>
                             <a href="{{url('logout')}}" class="text-sm px-2 py-2 leading-none text-white hover:text-gray-200 mt-4 lg:mt-0">Sair</a>

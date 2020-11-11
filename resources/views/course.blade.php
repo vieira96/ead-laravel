@@ -6,7 +6,7 @@
 	<div class="lg:container lg:mx-auto mt-10 mb-10 course flex items-center">
 		<div class="lg:flex flex-1">
 			<div class="lg:flex-shrink-0 flex justify-center items-center flex-col">
-				<img style="width: 500px; height: 300px;" class="rounded-lg transition duration-500 transform hover:-translate-y-1 hover:scale-110" src="{{asset('image/'.$course->image)}}" width="448" height="299">
+				<img style="width: 500px; height: 300px;" class="rounded-lg transition duration-500 transform hover:-translate-y-1 hover:scale-110" src="{{asset('image/courses/'.$course->image)}}" width="448" height="299">
 				<div class="rating-area-int mt-3">
 					<div class="estrelas">
 						@for ($i = 0; $i < 5; $i++)
@@ -28,7 +28,7 @@
 					@if($is_student)
 						<a class="transition duration-300 transform hover:-translate-y-1 hover:scale-110 text-white border p-2 rounded-3xl border-gray-300 mt-3 bg-gray-600" href="{{url('campus/'.$course->slug)}}">Ir para o curso</a>
 					@else
-						<a class="transition duration-300 transform hover:-translate-y-1 hover:scale-110 text-white border p-2 rounded-3xl border-gray-300 mt-3 bg-gray-600" href="{{url($course->slug.'/signup')}}">Inscrever-se</a>
+						<a class="transition duration-300 transform hover:-translate-y-1 hover:scale-110 text-white border p-2 rounded-3xl border-gray-300 mt-3 bg-gray-600" href="{{url('course/'.$course->slug.'/signup')}}">Inscrever-se</a>
 					@endif
 				@else
 					<a class="transition duration-300 transform hover:-translate-y-1 hover:scale-110 text-white border p-2 rounded-3xl border-gray-300 mt-3 bg-gray-600" href="{{url('/register')}}">Cadastre-se para ter acesso ao curso</a>

@@ -21,8 +21,7 @@ use App\Http\Controllers\DashboardController;
 */
 
 Route::get('/', [HomeController::class, 'index'])->name('home');
-Route::get('/{slug}/signup', [HomeController::class, 'signup']);
-
+   
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class, 'loginAction']);
 Route::get('/register', [LoginController::class, 'register'])->name('register');
@@ -30,6 +29,9 @@ Route::post('/register', [LoginController::class, 'registerAction']);
 
 Route::get('/profile', [UserController::class, 'index'])->name('profile');
 Route::post('/profile', [UserController::class, 'editAction']);
+
+Route::get('/course/{slug}/signup', [HomeController::class, 'signup']);
+Route::get('/course/{slug}', [HomeController::class, 'courseInfo']);
 
 Route::get('/campus', [CampusController::class, 'index'])->name('campus');
 
@@ -40,6 +42,6 @@ Route::get('/logout', [LoginController::class, 'logout']);
 Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('/dashboard/courses', [DashboardController::class, 'courses']);
 Route::get('/dashboard/new', [DashboardController::class, 'newCourse']);
-Route::get('/dashboard/course/edit/{id}', [DashboardController::class, 'editCourse']);
+Route::post('/dashboard/new', [DashboardController::class, 'newCourseAction']);
 
-Route::get('/{slug}', [HomeController::class, 'courseInfo']);   
+Route::get('/dashboard/course/edit/{id}', [DashboardController::class, 'editCourse']);

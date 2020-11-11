@@ -37,7 +37,7 @@
                 @foreach($course_list as $course)
                     <div class="w-course p-2">
                         <div class="min-h-full max-w-sm rounded overflow-hidden shadow-lg flex items-center flex-col">
-                            <img style="height: 200px;" class="w-full" src="{{asset('image/'.$course->image)}}">
+                            <img style="height: 200px;" class="w-full" src="{{asset('image/courses/'.$course->image)}}">
                             <div class="px-6 py-4">
                                 <div class="font-bold text-xl text-gray-400 mb-2 text-3xl">{{$course->name}}</div>
                             </div>

@@ -186,6 +186,75 @@
     background-color: #ccc;
 }
 
+.form-container {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.form-container h1 {
+    font-size: 30px;
+    color: #ccc;
+    margin-bottom: 10px;
+}
+
+.form-container form {
+    display: flex; 
+    flex-direction: column;
+    width: 50%;
+}
+
+.form-container label {
+    color: #ccc;
+    font-size: 22px;
+    margin-top: 15px;
+}
+
+.form-container input {
+    color: #ccc;
+}
+
+.form-container input {
+    border: 0;
+}
+
+.form-container input[type=text] {
+    padding: 10px;
+    color: #171616;
+}
+
+.form-container input:focus {
+    outline: 0;
+}
+
+.form-container textarea {
+    outline: 0;
+    padding-left: 5px;
+    padding-top: 5px;
+}
+
+.form-container input[type=submit] {
+    padding: 10px;
+    margin-top: 10px;
+    color: #ccc;
+    background-color: #232323;
+    cursor: pointer;
+    width: 180px;
+}
+
+.alert {
+    padding: 10px;
+    margin-top: 5px;
+    color: #fff;
+}
+
+.danger {
+    background-color: #d62525;
+}
+
 .show-aside {
     width: 280px !important;
     transition: 1s;   
@@ -207,11 +276,19 @@
         display: block;
         position: fixed;
     }
+
+    .form-container form {
+        width: 60%;
+    }
 }
 
 @media( max-width: 540px) {
     .course-info {
         width: 40%;
+    }
+
+    .form-container form {
+        width: 70%;
     }
 }
 
@@ -231,5 +308,9 @@
 
     .course-options--item {
         margin: 5px;
+    }
+
+    .form-container form {
+        width: 90%;
     }
 }

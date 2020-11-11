@@ -26,7 +26,7 @@
                 <div class="flex flex-col w-course mt-5">
                     <div class="w-full h-full flex flex-col">
                         <div class="min-h-full rounded overflow-hidden shadow-lg flex items-center flex-col text-gray-300">
-                            <img style="height: 200px;" class="w-full" src="{{asset('image/'.$course->image)}}">
+                            <img style="height: 200px;" class="w-full" src="{{asset('image/courses/'.$course->image)}}">
                             <div class="flex-1 flex flex-col items-center">
                                 <p class="px-6 py-4font-bold text-xl text-gray-400 mb-2 text-3xl">{{$course->name}}</p>
                                 <p class="px-6 pt-4 pb-2 break-words">{{$course->description}}aaaaaa aaaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaa</p>
@@ -36,7 +36,7 @@
                     
                     <div class="h-8 w-full">
                         <div class="bg-green-800 h-full w-full flex justify-center items-center text-gray-300">
-                            <a href="{{url($course->slug)}}">Ver curso</a>
+                            <a href="{{url('course/'.$course->slug)}}">Ver curso</a>
                         </div>
                     </div>
                 </div>
