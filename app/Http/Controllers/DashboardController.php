@@ -55,11 +55,9 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
         //validator
+        
         $request->validated();
-        $request->validate([
-            'name' => Rule::unique('courses'),
-            'slug' => Rule::unique('courses')
-        ]);
+        
 
         //Lidando com a imagem do curso
         $file = $request->file('image');
@@ -112,11 +110,7 @@ class DashboardController extends Controller
 
         //validator
         $validator = $request->validated();
-        $request->validate([
-            'name' => Rule::unique('courses')->ignore($id),
-            'slug' => Rule::unique('courses')->ignore($id)
-        ]);
-        
+    
         //final do validator
 
         //Lidando com a imagem do curso

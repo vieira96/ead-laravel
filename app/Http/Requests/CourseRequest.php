@@ -24,12 +24,13 @@ class CourseRequest extends FormRequest
      */
     public function rules()
     {
+        $id = $this->route('id');
         return [
             'image' => [Rule::requiredIf(function(){
                 return FormRequest::getPathInfo() === "/dashboard/new";
             }),'max:1000', 'mimes:jpeg,jpg,png'],
-            'slug' => ['required', 'max:255'],
-            'name' => ['required', 'max:255'],
+            'slug' => ['required', Rule::unique('courses')->ignore($id), 'max:255'],
+            'name' => ['required', Rule::unique('courses')->ignore($id), 'max:255'],
             'description' => ['required', 'max:255']
         ];
     }
