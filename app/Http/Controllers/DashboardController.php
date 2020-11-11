@@ -67,6 +67,7 @@ class DashboardController extends Controller
         $img->save('../public/image/courses/'.$file_name, 80);
         // imagem salva com um nome aleatorio na pasta
 
+        //tiro os espaços e coloco um " - " no lugar
         $slug = explode(' ', $request->input('slug'));
         $slug = implode('-', $slug);
 

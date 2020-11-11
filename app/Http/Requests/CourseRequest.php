@@ -31,15 +31,18 @@ class CourseRequest extends FormRequest
         ];
     }
 
-    public function message()
+    public function messages()
     {
         return [
-            'image.required' => 'Imagem é obrigatoria',
-            'slug.required' => 'O slug é obrigatorio',
-            'name.required' => 'O nome do curso é obrigatorio',
-            'description.required' => 'O campo de descrição é obrigatório',
-            'image.mimes' => 'Os tipos de imagens suportadas são jpg, jpeg, png',
-            'slug.unique' => 'Ja existe cupade'
+            'image.required' => 'Imagem é obrigatoria.',
+            'image.max' => 'A imagem ultrapassou o tamanho limite.',
+            'slug.required' => 'O slug é obrigatorio.',
+            'slug.unique' => 'Ja existe um curso com esse slug.',
+            'slug.max' => 'A descrição é ultrapassou o limite de 255 caracteres.',
+            'name.required' => 'O nome do curso é obrigatorio.',
+            'name.unique' => 'Esse nome já está em uso.',
+            'description.required' => 'O campo de descrição é obrigatório.',
+            'image.mimes' => 'Os tipos de imagens suportadas são jpg, jpeg, png.'
         ];
     }
 

@@ -59,7 +59,7 @@ class CampusController extends Controller
                 return redirect('campus');
             }
         } else {
-            $class = Classe::select()->where('course_id', $course->id)->first();
+            $class = Classe::where('course_id', $course->id)->first();
             $class->video = $class->video;
         }
         
@@ -68,7 +68,7 @@ class CampusController extends Controller
             'user' => $user,
             'modules' => $modules,
             'course' => $course,
-            'class1' => $class
+            'class' => $class
         ]);
     }
 

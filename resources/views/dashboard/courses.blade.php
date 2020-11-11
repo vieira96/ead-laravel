@@ -7,7 +7,7 @@
         @foreach($courses as $course)
         <div class="course-container">
             <div class="course-info">
-                <img src="{{asset('/image/'.$course->image)}}" style="height: 100px; width: 100%;">
+                <img src="{{asset('/image/courses/'.$course->image)}}" style="height: 100px; width: 100%;">
                 <span>{{$course->name}}</span>
             </div>
             <div class="course-options">
