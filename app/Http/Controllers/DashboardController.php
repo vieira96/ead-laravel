@@ -5,7 +5,10 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Facades\Auth;
+
 use App\Http\Requests\CourseRequest;
+
 
 use App\Models\Course;
 
@@ -19,7 +22,9 @@ class DashboardController extends Controller
 
     public function index()
     {
-        return view('dashboard.home');
+        return view('dashboard.home',[
+            'user' => Auth::user()
+        ]);
     }
 
     public function courses()
