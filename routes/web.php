@@ -45,3 +45,4 @@ Route::get('/dashboard/new', [DashboardController::class, 'newCourse']);
 Route::post('/dashboard/new', [DashboardController::class, 'newCourseAction']);
 
 Route::get('/dashboard/course/edit/{id}', [DashboardController::class, 'editCourse']);
+Route::post('/dashboard/course/edit/{id}', [DashboardController::class, 'editCourseAction']);

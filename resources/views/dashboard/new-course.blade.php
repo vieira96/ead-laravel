@@ -33,6 +33,7 @@
                 Descrição
             </label>
             <textarea name="description" cols="30" rows="5" maxlength="255" required>{{old('description')}}</textarea>
+            <span>! A descrição poder ter no máximo 255 caracteres.</span>
             @foreach ($errors->get('description') as $error)
                 <div class="alert danger">{{$error}}</div>
             @endforeach 

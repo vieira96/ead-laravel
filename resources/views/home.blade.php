@@ -29,7 +29,7 @@
                             <img style="height: 200px;" class="w-full" src="{{asset('image/courses/'.$course->image)}}">
                             <div class="flex-1 flex flex-col items-center">
                                 <p class="px-6 py-4font-bold text-xl text-gray-400 mb-2 text-3xl">{{$course->name}}</p>
-                                <p class="px-6 pt-4 pb-2 break-words">{{$course->description}}aaaaaa aaaaaaaaaaaaaaa aaaaaaaaaaaaaa aaaaa</p>
+                                <p class="px-6 pt-4 pb-2 break-words text-center">{{$course->description}}</p>
                             </div>
                         </div>
                     </div>

@@ -3,6 +3,7 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
 
 class CourseRequest extends FormRequest
 {
@@ -23,10 +24,19 @@ class CourseRequest extends FormRequest
      */
     public function rules()
     {
+        $id = '';
+        $path = explode('/', FormRequest::getPathInfo());
+        if(count($path) > 3){
+            if($path[3] === 'edit'){
+                $id = $path[4];
+            }
+        }
         return [
-            'image' => ['required','max:1000', 'mimes:jpeg,jpg,png'],
-            'slug' => ['required', 'unique:courses', 'max:255'],
-            'name' => ['required', 'unique:courses', 'max:255'],
+            'image' => [Rule::requiredIf(function(){
+                return FormRequest::getPathInfo() === "/dashboard/new";
+            }),'max:1000', 'mimes:jpeg,jpg,png'],
+            'slug' => ['required', Rule::unique('courses')->ignore($id), 'max:255'],
+            'name' => ['required', Rule::unique('courses')->ignore($id), 'max:255'],
             'description' => ['required', 'max:255']
         ];
     }
@@ -40,7 +50,7 @@ class CourseRequest extends FormRequest
             'slug.unique' => 'Ja existe um curso com esse slug.',
             'slug.max' => 'A descrição é ultrapassou o limite de 255 caracteres.',
             'name.required' => 'O nome do curso é obrigatorio.',
-            'name.unique' => 'Esse nome já está em uso.',
+            'name.unique' => 'Esse nome já está em uso',
             'description.required' => 'O campo de descrição é obrigatório.',
             'image.mimes' => 'Os tipos de imagens suportadas são jpg, jpeg, png.'
         ];
