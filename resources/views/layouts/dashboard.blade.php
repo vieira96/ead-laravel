@@ -29,7 +29,10 @@
                             <li><a href="{{url('/dashboard')}}">Home</a></li>
                             <li><a href="{{url('/dashboard/courses')}}">Cursos</a></li>
                             <li><a href="{{url('/dashboard/new')}}">Adicionar novo curso</a></li>
-                            <li><a href="">Usuarios</a></li>
+                            <li><a href="">Alunos</a></li>
+                            @if($user->office > 1)
+                                <li><a href="">Professores</a></li>
+                            @endif
                         </ul>
                     </nav>
                 </div>
