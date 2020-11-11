@@ -24,7 +24,7 @@
             <label for="name">
                 Nome
             </label>
-            <input type="text" name="name" value="{{$course->name}}" required>
+            <input type="text" name="name" value="{{$course->name}}">
             @foreach ($errors->get('name') as $error)
                 <div class="alert danger">{{$error}}</div>
             @endforeach 

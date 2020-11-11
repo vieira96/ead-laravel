@@ -6,8 +6,10 @@ use Illuminate\Http\Request;
 use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Validation\Rule;
 
 use App\Http\Requests\CourseRequest;
+
 
 
 use App\Models\Course;
@@ -53,7 +55,11 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
         //validator
-        $validator = $request->validated();
+        $request->validated();
+        $request->validate([
+            'name' => Rule::unique('courses'),
+            'slug' => Rule::unique('courses')
+        ]);
 
         //Lidando com a imagem do curso
         $file = $request->file('image');
@@ -106,6 +112,11 @@ class DashboardController extends Controller
 
         //validator
         $validator = $request->validated();
+        $request->validate([
+            'name' => Rule::unique('courses')->ignore($id),
+            'slug' => Rule::unique('courses')->ignore($id)
+        ]);
+        
         //final do validator
 
         //Lidando com a imagem do curso
