@@ -304,9 +304,53 @@
 
 .main-modules {
     width: 100%;
-    height: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.modules-container {
+    width: 80%;
     display: flex;
     flex-wrap: wrap;
+}
+
+.module-single {
+    width: 100%; 
+    height: 80px; 
+    margin: 5px;
+    border: 1px solid #232323;
+    display: flex;
+}
+
+.modules-options {
+    flex: 1;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+.modules-options a {
+    text-decoration: none;
+    color: #ccc;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #232323;
+   
+}
+
+.new-module {
+    width: 100%; 
+    height: 40px; 
+    margin: 5px;
+    display: flex;
+    justify-content: flex-end;
+}
+
+.new-module a {
+    text-decoration: none;
+    color: #ccc;
+    padding: 10px;
+    border: 1px solid #232323;
 }
 
 @media (max-width: 1024px) {

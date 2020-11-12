@@ -257,6 +257,36 @@ aside {
   border-radius: 0px 0px 0px 0px;
 }
 
+.fa-bars {
+  cursor: pointer;
+  height: 30px; 
+  width: 30px; 
+  display: none;
+}
+
+.menu-mobile {
+  display: none;
+  flex-direction: column;
+  width: 100%;
+  transition: 1s;
+}
+
+.menu-mobile a {
+  width: 100%;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #ccc;
+  border-bottom: 1px solid #5A5049;
+  overflow: hidden;
+}
+
+.menu-mobile-drop {
+  display: flex;
+  transition: 1s;
+}
+
 ::-webkit-scrollbar-track {
   box-shadow: inset 0 0 5px grey; 
   border-radius: 10px;
@@ -285,7 +315,7 @@ aside {
   }
 }
 
-@media (max-width: 540px) {	
+@media (max-width: 425px) {	
   
   .show {
     right: 110px;    
@@ -300,7 +330,16 @@ aside {
     margin: 5px;
   }
 
+  .menu-header {
+    display: none;
+  }
+
+  .fa-bars {
+    display: flex;
+  }
 }
+
+
 
 @media (max-width: 513px) {
   .w-course {

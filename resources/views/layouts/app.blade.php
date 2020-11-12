@@ -12,10 +12,10 @@
         <div class="lg:container lg:mx-auto w-full">
             <nav class="flex items-center justify-between flex-wrap">
                 <div class="flex items-center flex-shrink-0 text-white w-auto">
-                    <a href="{{url('/')}}" class="font-serif text-3xl tracking-tight px-2">Logo</a>
+                    <a href="{{url('/')}}" class="font-serif text-3xl tracking-tight">Logo</a>
                 </div>
                 
-                <div class="flex justify-end flex-grow lg:flex lg:items-center lg:w-auto flex-1">
+                <div class="flex justify-end flex-grow lg:flex lg:items-center lg:w-auto flex-1 menu-header">
                     <div class="flex">
                         @if($user)
                             @if($user->office > 0)
@@ -44,9 +44,30 @@
                         @endif
                     </div>
                 </div>
-          </nav>
+
+                <div class="fa-bars">
+                    <img src="{{asset('image/menu.svg')}}" style="width: 100%; height: 100%;">
+                </div>
+            </nav>
         </div>
     </header>
+    <div class="menu-mobile">
+        @if($user)
+            @if($user->office > 0)
+                <a href="{{url('dashboard')}}">Dashboard</a>
+            @endif
+            <a href="{{url('campus')}}">Campus</a>
+            <a href="{{url('profile')}}">Meu perfil</a>
+            <a href="{{url('logout')}}">Sair</a>
+        @else
+            <a href="{{url('login')}}">
+                Entrar
+            </a>
+            <a href="{{url('register')}}">
+                Registrar-se
+            </a>
+        @endif
+    </div>
 
     <main style="min-height: calc(100vh - 9rem)">
         @yield('content')
@@ -58,16 +79,25 @@
     
     <script>
         var login = document.getElementById("login");
-        login.addEventListener('click', function(){
-            var ballon = document.getElementById("ballon");
-            if(ballon.classList.contains('hide')) {
-                ballon.classList.remove('hide');
-                ballon.classList.add('show');
-            } else {
-                ballon.classList.remove('show');
-                ballon.classList.add('hide');
-            }
+        if(login){
+            login.addEventListener('click', function(){
+                var ballon = document.getElementById("ballon");
+                if(ballon.classList.contains('hide')) {
+                    ballon.classList.remove('hide');
+                    ballon.classList.add('show');
+                } else {
+                    ballon.classList.remove('show');
+                    ballon.classList.add('hide');
+                }
+            });
+        }
+
+        var faBars = document.querySelector('.fa-bars');
+        var menuMobile = document.querySelector('.menu-mobile');
+        faBars.addEventListener('click', function(){
+            menuMobile.classList.toggle('menu-mobile-drop');
         });
+
     </script>
 </body>
 </html>

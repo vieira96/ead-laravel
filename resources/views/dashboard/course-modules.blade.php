@@ -4,8 +4,55 @@
 
 @section('content')
     <div class="main-modules">
-        <div style="width: 48%; background-color: #fff; height: 150px; margin: 5px;"></div>
-        <div style="width: 48%; background-color: #fff; height: 150px; margin: 5px;"></div>
-        <div style="width: 48%; background-color: #fff; height: 150px; margin: 5px;"></div>
+        <div class="modules-container">
+            <div class="module-single">
+                <div style="width: 80px; background-color: #ff00ff; height: 100%;">
+
+                </div>
+                <div class="modules-options">
+                    <a href="">Exibir aulas</a>
+                    <a href="">Editar modulo</a>
+                    <a href="">Excluir modulo</a>
+                </div>
+            </div>
+
+            <div class="module-single">
+                <div style="width: 80px; background-color: #ff00ff; height: 100%;">
+
+                </div>
+                <div class="modules-options">
+                    <a href="">Exibir aulas</a>
+                    <a href="">Editar modulo</a>
+                    <a href="">Excluir modulo</a>
+                </div>
+            </div>
+
+            <div class="module-single">
+                <div style="width: 80px; background-color: #ff00ff; height: 100%;">
+
+                </div>
+                <div class="modules-options">
+                    <a href="">Exibir aulas</a>
+                    <a href="">Editar modulo</a>
+                    <a href="">Excluir modulo</a>
+                </div>
+            </div>
+
+            <div class="module-single">
+                <div style="width: 80px; background-color: #ff00ff; height: 100%;">
+
+                </div>
+                <div class="modules-options">
+                    <a href="">Exibir aulas</a>
+                    <a href="">Editar modulo</a>
+                    <a href="">Excluir modulo</a>
+                </div>
+            </div>
+           
+            <div class="new-module">
+                <a href="">Adicionar novo módulo</a>
+            </div>
+            
+        </div>
     </div>
 @endsection
