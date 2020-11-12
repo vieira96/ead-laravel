@@ -42,10 +42,10 @@ class CourseRequest extends FormRequest
             'image.max' => 'A imagem ultrapassou o tamanho limite.',
             'slug.required' => 'O slug é obrigatorio.',
             'slug.unique' => 'Ja existe um curso com esse slug.',
-            'slug.max' => 'A descrição é ultrapassou o limite de 255 caracteres.',
             'name.required' => 'O nome do curso é obrigatorio.',
             'name.unique' => 'Esse nome já está em uso.',
             'description.required' => 'O campo de descrição é obrigatório.',
+            'description.max' => 'A descrição é ultrapassou o limite de 255 caracteres.',
             'image.mimes' => 'Os tipos de imagens suportadas são jpg, jpeg, png.'
         ];
     }

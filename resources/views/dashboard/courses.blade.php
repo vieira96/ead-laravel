@@ -12,8 +12,8 @@
             </div>
             <div class="course-options">
                 <a class="course-options--item" href="">Alunos inscritos</a>
-                <a class="course-options--item" href="">Módulos do curso</a>
-                <a class="course-options--item" href="{{url('dashboard/course/edit/'.$course->id)}}">Editar curso</a>
+                <a class="course-options--item" href="{{url('dashboard/course/'.$course->id.'/modules')}}">Módulos do curso</a>
+                <a class="course-options--item" href="{{url('dashboard/course/'.$course->id.'/edit')}}">Editar curso</a>
             </div>
         </div>
         @endforeach        

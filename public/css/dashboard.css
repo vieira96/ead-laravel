@@ -87,6 +87,7 @@
     background-size: cover;
     min-height: 100vh;
     margin-left: 280px;
+    width: 100%;
 }
 
 .fa-bars {
@@ -301,9 +302,20 @@
     transition: 1s;   
 }
 
+.main-modules {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
 @media (max-width: 1024px) {
     .item {
         width: 47%;
+    }
+
+    .form-container form {
+        width: 65%;
     }
 }
 
@@ -341,7 +353,7 @@
     }
 }
 
-@media (max-width: 414px) {
+@media (max-width: 425px) {
     .course-info {
         width: 100%;
     }
@@ -357,4 +369,27 @@
     .form-container form {
         width: 90%;
     }
+
+    .current-image {
+        width: 100%;
+        height: 100px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .current-image img {
+        width: 80%;
+    }
+
+    .form-image {
+        flex-wrap: wrap;
+        height: auto !important;
+    }
+
+    .image-input {
+        margin-left: 0;
+    }
+
+
 }

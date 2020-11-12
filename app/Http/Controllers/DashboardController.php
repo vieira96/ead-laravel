@@ -146,4 +146,12 @@ class DashboardController extends Controller
         $course->save();
         return redirect('dashboard/course/edit/'.$id);
     }
+
+    public function modules($id)
+    {
+        $user = Auth::user();
+        return view('dashboard.course-modules',[
+            'user' => $user
+        ]);
+    }
 }
