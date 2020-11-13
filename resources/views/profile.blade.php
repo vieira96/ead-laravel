@@ -3,7 +3,7 @@
 @section('title', 'Profile')
 
 @section('content')
-    <div class="w-full mt-10 mb-10 profile-content flex items-center">
+    <div class="w-full mt-10 mb-10 profile-content flex items-center justify-center">
         <div class="lg:container lg:mx-auto flex justify-center">
             <form class="w-full max-w-lg" method="POST">
                 @if(!empty($error))
@@ -48,7 +48,7 @@
                     </div>
 
                     <div class="w-full md:w-2/2 px-3 flex justify-center">
-                        <input class="appearance-none block bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight cursor-pointer w-20" type="submit">
+                        <input class="appearance-none block bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight cursor-pointer w-20" type="submit" value="Salvar">
                     </div>
 
                 </div>

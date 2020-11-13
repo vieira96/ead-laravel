@@ -147,6 +147,14 @@ class DashboardController extends Controller
         return redirect('dashboard/course/edit/'.$id);
     }
 
+    public function deleteCourse($id)
+    {
+        $course = Course::find($id);
+        $course->delete();
+
+        return redirect('/dashboard/courses');
+    }
+
     public function modules($id)
     {
         $user = Auth::user();

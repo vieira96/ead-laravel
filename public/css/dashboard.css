@@ -361,6 +361,10 @@
     .form-container form {
         width: 65%;
     }
+
+    .course-options--item {
+        margin-right: 6px;
+    }
 }
 
 @media (max-width: 768px) {

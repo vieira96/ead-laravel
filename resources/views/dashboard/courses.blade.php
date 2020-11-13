@@ -14,6 +14,7 @@
                 <a class="course-options--item" href="">Alunos inscritos</a>
                 <a class="course-options--item" href="{{url('dashboard/course/'.$course->id.'/modules')}}">Módulos do curso</a>
                 <a class="course-options--item" href="{{url('dashboard/course/'.$course->id.'/edit')}}">Editar curso</a>
+                <a class="course-options--item" href="{{url('dashboard/course/'.$course->id.'/delete')}}" onclick="return confirm('Deseja realmente apagar o curso?')">Apagar curso</a>
             </div>
         </div>
         @endforeach        
