@@ -7,6 +7,7 @@ use Intervention\Image\ImageManagerStatic as Image;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Rule;
+use Illuminate\Support\Facades\Gate;
 
 use App\Http\Requests\CourseRequest;
 
@@ -150,7 +151,9 @@ class DashboardController extends Controller
     public function deleteCourse($id)
     {
         $course = Course::find($id);
-        $course->delete();
+        if(Gate::allows('delete-course', $course)){
+            $course->delete();
+        }
 
         return redirect('/dashboard/courses');
     }
