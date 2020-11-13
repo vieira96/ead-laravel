@@ -338,19 +338,15 @@
    
 }
 
-.options {
-    width: 100%;
+.new-module {
+    width: 100%; 
+    height: 40px; 
     margin: 5px;
     display: flex;
-    justify-content: space-between;
+    justify-content: flex-end;
 }
 
-.save-module, .new-module {
-    min-height: 40px;
-    margin-top: 10px; 
-}
-
-.new-module a, .save-module a {
+.new-module a {
     text-decoration: none;
     color: #ccc;
     padding: 10px;
