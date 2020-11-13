@@ -97,11 +97,15 @@ class DashboardController extends Controller
     {
         $user = Auth::user();
         $course = Course::find($id);
-
-        return view('dashboard.edit-course', [
-            'course' => $course,
-            'user' => $user
-        ]);
+        if($course) {
+            if(Gate::allows('edit-course', $course)){
+                return view('dashboard.edit-course', [
+                    'course' => $course,
+                    'user' => $user
+                ]);
+            }
+        }
+        return redirect('/dashboard/courses');
     }
 
     public function editCourseAction($id, CourseRequest $request)
@@ -151,10 +155,16 @@ class DashboardController extends Controller
     public function deleteCourse($id)
     {
         $course = Course::find($id);
-        if(Gate::allows('delete-course', $course)){
-            $course->delete();
+        if($course){
+            if(Gate::allows('delete-course', $course)){
+                //deleta a imagem do curso antes de deletar o curso
+                //TODO: deletar todos os modulos do curso, mas farei dps de criar o delete de models
+                if(file_exists('../public/image/courses/'.$course->image)) {
+                    unlink('../public/image/courses/'.$course->image);
+                }
+                $course->delete();
+            }
         }
-
         return redirect('/dashboard/courses');
     }
 
