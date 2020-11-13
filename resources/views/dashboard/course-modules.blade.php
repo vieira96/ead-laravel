@@ -5,8 +5,9 @@
 @section('content')
     <div class="main-modules">
         <div class="modules-container">
+
             <div class="module-single">
-                <div style="width: 80px; background-color: #ff00ff; height: 100%;">
+                <div style="width: 40px; background-color: #ff00ff; height: 100%; margin-right: 10px;">
 
                 </div>
                 <div class="modules-options">
@@ -17,7 +18,7 @@
             </div>
 
             <div class="module-single">
-                <div style="width: 80px; background-color: #ff00ff; height: 100%;">
+                <div style="width: 40px; background-color: #ff00ff; height: 100%; margin-right: 10px;">
 
                 </div>
                 <div class="modules-options">
@@ -26,31 +27,15 @@
                     <a href="">Excluir modulo</a>
                 </div>
             </div>
-
-            <div class="module-single">
-                <div style="width: 80px; background-color: #ff00ff; height: 100%;">
-
+            
+            <div class="options">
+                <div class="save-module">
+                    <a href="">Salvar alterações</a>
                 </div>
-                <div class="modules-options">
-                    <a href="">Exibir aulas</a>
-                    <a href="">Editar modulo</a>
-                    <a href="">Excluir modulo</a>
-                </div>
-            </div>
 
-            <div class="module-single">
-                <div style="width: 80px; background-color: #ff00ff; height: 100%;">
-
+                <div class="new-module">
+                    <a href="">Adicionar novo módulo</a>
                 </div>
-                <div class="modules-options">
-                    <a href="">Exibir aulas</a>
-                    <a href="">Editar modulo</a>
-                    <a href="">Excluir modulo</a>
-                </div>
-            </div>
-           
-            <div class="new-module">
-                <a href="">Adicionar novo módulo</a>
             </div>
             
         </div>
