@@ -2,10 +2,12 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
+use App\Http\Requests\UserRequest;
 use App\Models\User;
 
 class LoginController extends Controller
@@ -40,50 +42,17 @@ class LoginController extends Controller
         }
     }
 
-    public function register(Request $request)
+    public function register()
     {
-        return view('register', [
-            'error' => $request->session()->get('error')
-        ]);
+        return view('register');
     }
 
-    public function registerAction(Request $request)
+    public function registerAction(UserRequest $request)
     {
-        $validator = Validator::make($request->all(), [
-            'name' => ['required', 'string', 'max:255'],
-            'password' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'unique:users', 'email', 'max:255',],
-        ]);
-
-        if($validator->fails()) {
-            $request->session()->flash('error', 'Ocorreu um erro, verifique os dados e tente novamente.');
-            return redirect('/register')->withInput();
-        }
-
-        $creds = $request->all();
         
-        $hasEmail = User::where('email', $creds['email'])->count();
-        if($hasEmail > 0) {
-            $request->session()->flash('error', 'Já existe um usuário cadastrado com esse e-mail');
-            return redirect('register');
-        }
-
-        if($creds['password'] !== $creds['confirm-password']) {
-            $request->session()->flash('error', 'Senhas não conferem.');
-            return redirect('register')->withInput();
-        }
-
-        $newUser = new User();
-        $newUser->name = $creds['name'];
-        $newUser->email = $creds['email'];
-        $newUser->password = password_hash($creds['password'], PASSWORD_DEFAULT);
-        $newUser->save();
-
-
-        Auth::login($newUser);
-        
+        User::create($request->validated());
+        //toda a logica esta no observer de user
         return redirect('/');
-        
     }
 
     public function logout()

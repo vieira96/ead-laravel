@@ -32,9 +32,21 @@
                   </label>
                 </div>
                 <div class="md:w-2/3">
-                <input class="bg-white appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white" name="name" id="inline-nome" type="text" placeholder="Fulano" value="{{old('name')}}">
+                  <input class="bg-white appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white" name="name" id="inline-nome" type="text" placeholder="Fulano" value="{{old('name')}}">
                 </div>
             </div>
+            @if($errors->get('name'))
+				<div class="md:flex md:items-center mb-6">
+					<div class="md:w-1/3">
+					</div>
+					<div class="md:w-2/3">
+						@foreach ($errors->get('name') as $error)
+						<div class="alert danger">{{$error}}</div>
+						@endforeach 
+					</div>
+				</div>
+            @endif
+            
 
             <div class="md:flex md:items-center mb-6">
               <div class="md:w-1/3">
@@ -45,7 +57,18 @@
               <div class="md:w-2/3">
                 <input class="bg-white appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white" name="email" id="inline-email" type="email" placeholder="exemplo@email.com" value="{{old('email')}}">
               </div>
-            </div>
+			</div>
+			@if($errors->get('email'))
+				<div class="md:flex md:items-center mb-6">
+					<div class="md:w-1/3">
+					</div>
+					<div class="md:w-2/3">
+						@foreach ($errors->get('email') as $error)
+						<div class="alert danger">{{$error}}</div>
+						@endforeach 
+					</div>
+				</div>
+            @endif
 
             <div class="md:flex md:items-center mb-6">
               <div class="md:w-1/3">
@@ -56,7 +79,19 @@
               <div class="md:w-2/3">
                 <input class="bg-white appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white" name="password" id="inline-password" type="password" placeholder="********">
               </div>
-            </div>
+			</div>
+			
+			@if($errors->get('password'))
+				<div class="md:flex md:items-center mb-6">
+					<div class="md:w-1/3">
+					</div>
+					<div class="md:w-2/3">
+						@foreach ($errors->get('password') as $error)
+						<div class="alert danger">{{$error}}</div>
+						@endforeach 
+					</div>
+				</div>
+            @endif
 
             <div class="md:flex md:items-center mb-6">
                 <div class="md:w-1/3">
@@ -67,7 +102,19 @@
                 <div class="md:w-2/3">
                   <input class="bg-white appearance-none border-2 border-gray-200 rounded w-full py-2 px-4 text-gray-700 leading-tight focus:outline-none focus:bg-white" name="confirm-password" id="password" type="password" placeholder="********">
                 </div>
-            </div>
+			</div>
+
+			@if($errors->get('confirm-password'))
+				<div class="md:flex md:items-center mb-6">
+					<div class="md:w-1/3">
+					</div>
+					<div class="md:w-2/3">
+						@foreach ($errors->get('confirm-password') as $error)
+						<div class="alert danger">{{$error}}</div>
+						@endforeach 
+					</div>
+				</div>
+            @endif
 
             {{-- <div class="md:flex md:items-center mb-6">
               <div class="md:w-1/3"></div>

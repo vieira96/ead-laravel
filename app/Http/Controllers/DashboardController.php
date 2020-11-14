@@ -149,7 +149,7 @@ class DashboardController extends Controller
         $course->name = $request->input('name');
         $course->description = $request->input('description');
         $course->save();
-        return redirect('dashboard/course/edit/'.$id);
+        return redirect('dashboard/course/'.$id.'/edit');
     }
 
     public function deleteCourse($id)
