@@ -22,13 +22,6 @@
             @foreach ($errors->get('name') as $error)
                 <div class="alert danger">{{$error}}</div>
             @endforeach 
-            <label for="slug">
-                Slug
-            </label>
-            <input type="text" name="slug" value="{{old('slug')}}" required>
-            @foreach ($errors->get('slug') as $error)
-                <div class="alert danger">{{$error}}</div>
-            @endforeach 
             <label for="description">
                 Descrição
             </label>

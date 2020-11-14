@@ -5,6 +5,9 @@ namespace App\Providers;
 use App\Models\User;
 use App\Observers\UserObserver;
 
+use App\Models\Course;
+use App\Observers\CourseObserver;
+
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -28,6 +31,7 @@ class AppServiceProvider extends ServiceProvider
     {
         //
         User::observe(UserObserver::class);
+        Course::observe(CourseObserver::class);
 
     }
 }

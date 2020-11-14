@@ -54,43 +54,9 @@ class DashboardController extends Controller
 
     public function newCourseAction(CourseRequest $request)
     {
-        $user = Auth::user();
-        //validator
-        
-        $request->validated();
-        
-
-        //Lidando com a imagem do curso
-        $file = $request->file('image');
-        
-        //lidando com a imagem
-        //redimensiona a imagem
-        $img = Image::make($file->path())->resize(500, null, function($constraint){
-            $constraint->aspectRatio();
-        });
-
-        $mime = explode('/', $img->mime());
-        $mime = '.'.$mime[1];
-        
-        $file_name = rand(0, 99999).time().rand(0,99999).$mime;
-
-        // $file_name = rand(0, 9999)
-        $img->save('../public/image/courses/'.$file_name, 80);
-        // imagem salva com um nome aleatorio na pasta
-
-        //tiro os espaços e coloco um " - " no lugar
-        $slug = explode(' ', $request->input('slug'));
-        $slug = implode('-', $slug);
-
-        $new_course = new Course();
-        $new_course->image = $file_name;
-        $new_course->slug = $slug;
-        $new_course->name = $request->input('name');
-        $new_course->description = $request->input('description');
-        $new_course->owner_id = $user->id;
-        $new_course->save();
-
-        return redirect('/course/'.$new_course->slug);
+        $course = Course::create($request->validated());
+        //toda a logica está no CourseObserver creating()
+        return redirect('/dashboard/courses');
     }
 
     public function editCourse($id)
@@ -109,47 +75,17 @@ class DashboardController extends Controller
     }
 
     public function editCourseAction($id, CourseRequest $request)
-    {
+    {   
         $course = Course::find($id);
         $file_name = $course->image;
 
-        //validator
-        $validator = $request->validated();
-    
-        //final do validator
-
-        //Lidando com a imagem do curso
-        $file = $request->file('image');
-        
-        if($file){
-            //deletar a imagem antiga do curso
+        $course->update($request->validated());
+        if($file_name != $course->image) {
             if(file_exists('../public/image/courses/'.$file_name)) {
                 unlink('../public/image/courses/'.$file_name);
             }
-
-            //lidando com a imagem
-            //redimensiona a imagem
-            $img = Image::make($file->path())->resize(500, null, function($constraint){
-                $constraint->aspectRatio();
-            });
-
-            $mime = explode('/', $img->mime());
-            $mime = '.'.$mime[1];
-            
-            $file_name = rand(0, 99999).time().rand(0,99999).$mime;
-            $img->save('../public/image/courses/'.$file_name, 80);
-            // imagem salva com um nome aleatorio na pasta
         }
-        //tiro os espaços e coloco um " - " no lugar
-        $slug = explode(' ', $request->input('slug'));
-        $slug = implode('-', $slug);
-        
-        $course->image = $file_name;
-        $course->slug = $slug;
-        $course->name = $request->input('name');
-        $course->description = $request->input('description');
-        $course->save();
-        return redirect('dashboard/course/'.$id.'/edit');
+        return redirect('/dashboard/course/'.$id.'/edit');
     }
 
     public function deleteCourse($id)

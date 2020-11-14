@@ -29,7 +29,6 @@ class CourseRequest extends FormRequest
             'image' => [Rule::requiredIf(function(){
                 return FormRequest::getPathInfo() === "/dashboard/new";
             }),'max:1000', 'mimes:jpeg,jpg,png'],
-            'slug' => ['required', Rule::unique('courses')->ignore($id), 'max:255'],
             'name' => ['required', Rule::unique('courses')->ignore($id), 'max:255'],
             'description' => ['required', 'max:255']
         ];
@@ -40,8 +39,6 @@ class CourseRequest extends FormRequest
         return [
             'image.required' => 'Imagem é obrigatoria.',
             'image.max' => 'A imagem ultrapassou o tamanho limite.',
-            'slug.required' => 'O slug é obrigatorio.',
-            'slug.unique' => 'Ja existe um curso com esse slug.',
             'name.required' => 'O nome do curso é obrigatorio.',
             'name.unique' => 'Esse nome já está em uso.',
             'description.required' => 'O campo de descrição é obrigatório.',

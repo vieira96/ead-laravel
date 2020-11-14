@@ -11,9 +11,9 @@ use App\Models\User;
 class UserObserver
 {
     /**
-     * Handle the post "saving" event.
+     * Handle the User "saving" event.
      *
-     * @param  \App\Post  $post
+     * @param  \App\User  $user
      * @return void
      */
     public function saving(User $user)
