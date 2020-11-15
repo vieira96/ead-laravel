@@ -44,9 +44,13 @@ Route::get('/dashboard/courses', [DashboardController::class, 'courses']);
 Route::get('/dashboard/new', [DashboardController::class, 'newCourse']);
 Route::post('/dashboard/new', [DashboardController::class, 'newCourseAction']);
 
-Route::get('/dashboard/course/{id}/edit', [DashboardController::class, 'editCourse']);
-Route::post('/dashboard/course/{id}/edit', [DashboardController::class, 'editCourseAction']);
+Route::get('/dashboard/course/{course}/edit', [DashboardController::class, 'editCourse']);
+Route::post('/dashboard/course/{course}/edit', [DashboardController::class, 'editCourseAction']);
 
 Route::get('/dashboard/course/{id}/delete', [DashboardController::class, 'deleteCourse']);
 
 Route::get('/dashboard/course/{id}/modules', [DashboardController::class, 'modules']);
+
+Route::fallback(function () {
+    return view('404');
+});

@@ -70,7 +70,6 @@ class CourseObserver
         $file_name = $course->getOriginal('image');
         
         if(is_file($course->image)) {
-            
             //lidando com a imagem
             //redimensiona a imagem
             $img = Image::make($course->image->path())->resize(500, null, function($constraint){
@@ -83,8 +82,11 @@ class CourseObserver
             $file_name = rand(0, 99999).time().rand(0,99999).$mime;
             $img->save('../public/image/courses/'.$file_name, 80);
             // imagem salva com um nome aleatorio na pasta
+            if(file_exists('../public/image/courses/'.$course->getOriginal('image'))) {
+                unlink('../public/image/courses/'.$course->getOriginal('image'));
+            }
         }
-        
+
         $course->name = $course->name;
         $course->description = $course->description;
         $course->slug = Str::slug($course->name);

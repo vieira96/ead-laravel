@@ -59,33 +59,23 @@ class DashboardController extends Controller
         return redirect('/dashboard/courses');
     }
 
-    public function editCourse($id)
+    public function editCourse(Course $course)
     {
         $user = Auth::user();
-        $course = Course::find($id);
-        if($course) {
-            if(Gate::allows('edit-course', $course)){
-                return view('dashboard.edit-course', [
-                    'course' => $course,
-                    'user' => $user
-                ]);
-            }
+        if(Gate::allows('edit-course', $course)){
+            return view('dashboard.edit-course', [
+                'course' => $course,
+                'user' => $user
+            ]);
         }
+        
         return redirect('/dashboard/courses');
     }
 
-    public function editCourseAction($id, CourseRequest $request)
+    public function editCourseAction(Course $course, CourseRequest $request)
     {   
-        $course = Course::find($id);
-        $file_name = $course->image;
-
         $course->update($request->validated());
-        if($file_name != $course->image) {
-            if(file_exists('../public/image/courses/'.$file_name)) {
-                unlink('../public/image/courses/'.$file_name);
-            }
-        }
-        return redirect('/dashboard/course/'.$id.'/edit');
+        return redirect('/dashboard/course/'.$course->id.'/edit');
     }
 
     public function deleteCourse($id)
