@@ -26,10 +26,11 @@ class UserRequest extends FormRequest
      */
     public function rules()
     {
+        
         return [
             'name' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'max:255'],
-            'password-confirm' => ['required', 'string', 'max:2555', 'same:password'],
+            'confirm-password' => ['required', 'string', 'max:2555', 'same:password'],
             'email' => [Rule::requiredIf(empty(Auth::user())), 'unique:users', 'email', 'max:255',],
         ];
     }

@@ -254,7 +254,6 @@ aside {
 
 .container-class {
   margin-top: 5px;
-  border-radius: 0px 0px 0px 0px;
 }
 
 .fa-bars {
@@ -291,6 +290,9 @@ aside {
   padding: 10px;
   margin-top: 5px;
   color: #fff;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .danger {

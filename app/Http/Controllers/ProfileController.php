@@ -15,6 +15,7 @@ class ProfileController extends Controller
     {
         return view('profile', [
             'user' => $request->user(),
+            'success' => $request->session()->get('success')
         ]);
     }
 }

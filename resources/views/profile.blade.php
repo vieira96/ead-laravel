@@ -31,30 +31,26 @@
                         <label class="block uppercase tracking-wide text-gray-300 text-xs font-bold mb-2">
                             Senha
                         </label>
-                        <input class="appearance-none block w-full bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="password" placeholder="********" required name="password">
+                        <input class="appearance-none block w-full bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="password" placeholder="********" name="password">
                     </div>
 
                     <div class="w-full md:w-1/2 px-3">
                         <label class="block uppercase tracking-wide text-gray-300 text-xs font-bold mb-2">
                             Confirmar Senha
                         </label>
-                        <input class="appearance-none block w-full bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="password" placeholder="********" name="password-confirm" required>
+                        <input class="appearance-none block w-full bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight focus:outline-none focus:bg-white focus:border-gray-500" type="password" placeholder="********" name="confirm-password">
                     </div>
 
                     <div class="w-full md:w-2/2 px-3 flex justify-center">
                         <input class="appearance-none block bg-gray-300 text-gray-700 border border-gray-200 rounded py-3 px-4 mb-3 leading-tight cursor-pointer w-20" type="submit" value="Salvar">
                     </div>
-                    @if($errors->any())
-                        @foreach ($errors->get('email') as $error)
-                            <div class="alert danger">{{$error}}</div>
-                        @endforeach
-
-                        @foreach ($errors->get('password') as $error)
-                            <div class="alert danger">{{$error}}</div>
-                        @endforeach
-                    @endif
+                    
                 </div>
-                
+                @if($errors->any())
+                    @foreach ($errors->all() as $error)
+                        <div class="alert danger">{{$error}}</div>
+                    @endforeach
+                @endif
             </form>
         </div>
     </div>

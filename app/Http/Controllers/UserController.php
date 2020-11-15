@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Http\Requests\UserRequest;
 
+use App\Models\User;
 
 class UserController extends Controller
 {
@@ -25,8 +26,9 @@ class UserController extends Controller
     public function editAction(UserRequest $request)
     {
         $user = $request->user();
-        $user->update($request->validated());
-
+        if($user->update($request->validated())){
+            $request->session()->flash('success', 'dados atualizados com sucesso');
+        }
         return redirect('profile');
     }
 }

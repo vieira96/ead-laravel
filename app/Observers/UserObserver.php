@@ -18,7 +18,6 @@ class UserObserver
     */
     public function creating(User $user)
     {
-        dd('ok creat');
         $user->password = Hash::make($user->password);
     }
 

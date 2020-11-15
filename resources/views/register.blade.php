@@ -95,7 +95,7 @@
 
             <div class="md:flex md:items-center mb-6">
                 <div class="md:w-1/3">
-                  <label class="block text-white font-bold md:text-left mb-1 md:mb-0 pr-4" for="password">
+                  <label class="block text-white font-bold md:text-left mb-1 md:mb-0 pr-4" for="confirm-password">
                     Confirmar Senha
                   </label>
                 </div>
