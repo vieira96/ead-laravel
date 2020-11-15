@@ -24,7 +24,7 @@ class CourseRequest extends FormRequest
      */
     public function rules()
     {
-        $id = $this->route('id');
+        $id = $this->route('course.id');
         return [
             'image' => [Rule::requiredIf(function(){
                 return FormRequest::getPathInfo() === "/dashboard/new";

@@ -7,6 +7,11 @@
         <h1>Editando o curso: {{$course->name}}</h1>
         <form method="POST" enctype="multipart/form-data">
             @csrf
+            @if(!empty($success))
+                <div style="margin-bottom: 20px" class="alert success">
+                    {{$success}}
+                </div>
+            @endif
             <div class="form-image">
                 <div class="current-image">
                     <img src="{{asset('image/courses/'.$course->image)}}" alt="">

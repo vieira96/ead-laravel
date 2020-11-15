@@ -11,8 +11,6 @@ use Illuminate\Support\Facades\Gate;
 
 use App\Http\Requests\CourseRequest;
 
-
-
 use App\Models\Course;
 
 class DashboardController extends Controller
@@ -59,13 +57,14 @@ class DashboardController extends Controller
         return redirect('/dashboard/courses');
     }
 
-    public function editCourse(Course $course)
+    public function editCourse(Course $course, Request $request)
     {
         $user = Auth::user();
         if(Gate::allows('edit-course', $course)){
             return view('dashboard.edit-course', [
                 'course' => $course,
-                'user' => $user
+                'user' => $user,
+                'success' => $request->session()->get('success')
             ]);
         }
         
@@ -74,7 +73,9 @@ class DashboardController extends Controller
 
     public function editCourseAction(Course $course, CourseRequest $request)
     {   
-        $course->update($request->validated());
+        if($course->update($request->validated())){
+            $request->session()->flash('success', 'Curso atualizado com sucesso');
+        }
         return redirect('/dashboard/course/'.$course->id.'/edit');
     }
 
