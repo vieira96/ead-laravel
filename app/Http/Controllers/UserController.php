@@ -10,6 +10,11 @@ use App\Models\User;
 class UserController extends Controller
 {
    
+    public function __construct()
+    {
+        $this->middleware('guest', ['only' => ['register']]);
+    }
+
     public function register()
     {
         return view('register');

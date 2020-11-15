@@ -9,6 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CampusController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\ModulesController;
 
 
 /*
@@ -51,7 +52,7 @@ Route::post('/dashboard/course/{course}/edit', [DashboardController::class, 'edi
 
 Route::get('/dashboard/course/{id}/delete', [DashboardController::class, 'deleteCourse']);
 
-Route::get('/dashboard/course/{id}/modules', [DashboardController::class, 'modules']);
+Route::get('/dashboard/course/{id}/modules', [ModulesController::class, 'modules']);
 
 Route::fallback(function () {
     return view('404');

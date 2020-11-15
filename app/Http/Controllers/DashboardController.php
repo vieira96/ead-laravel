@@ -94,11 +94,5 @@ class DashboardController extends Controller
         return redirect('/dashboard/courses');
     }
 
-    public function modules($id)
-    {
-        $user = Auth::user();
-        return view('dashboard.course-modules',[
-            'user' => $user
-        ]);
-    }
+    
 }
