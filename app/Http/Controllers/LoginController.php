@@ -7,7 +7,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Validator;
 
-use App\Http\Requests\UserRequest;
 use App\Models\User;
 
 class LoginController extends Controller
@@ -40,19 +39,6 @@ class LoginController extends Controller
         }else {
             return redirect('login');
         }
-    }
-
-    public function register()
-    {
-        return view('register');
-    }
-
-    public function registerAction(UserRequest $request)
-    {
-        
-        User::create($request->validated());
-        //toda a logica esta no observer de user
-        return redirect('/');
     }
 
     public function logout()

@@ -11,13 +11,14 @@ use App\Models\User;
 class UserObserver
 {
     /**
-     * Handle the User "saving" event.
+     * Handle the User "creating" event.
      *
      * @param  \App\User  $user
      * @return void
-     */
-    public function saving(User $user)
+    */
+    public function creating(User $user)
     {
+        dd('ok creat');
         $user->password = Hash::make($user->password);
     }
 
@@ -30,6 +31,18 @@ class UserObserver
     public function created(User $user)
     {
         Auth::login($user);
+    }
+
+    /**
+     * Handle the User "updating" event.
+     *
+     * @param  \App\User  $user
+     * @return void
+     */
+    public function updating(User $user)
+    {   
+        $user->name = $user->name;
+        $user->password = Hash::make($user->password);
     }
 
     /**

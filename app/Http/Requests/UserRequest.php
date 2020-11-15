@@ -3,6 +3,9 @@
 namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
+use Illuminate\Validation\Rule;
+
+use Illuminate\Support\Facades\Auth;
 
 class UserRequest extends FormRequest
 {
@@ -26,8 +29,8 @@ class UserRequest extends FormRequest
         return [
             'name' => ['required', 'string', 'max:255'],
             'password' => ['required', 'string', 'max:255'],
-            'confirm-password' => ['required', 'string', 'max:2555', 'same:password'],
-            'email' => ['required', 'unique:users', 'email', 'max:255',],
+            'password-confirm' => ['required', 'string', 'max:2555', 'same:password'],
+            'email' => [Rule::requiredIf(empty(Auth::user())), 'unique:users', 'email', 'max:255',],
         ];
     }
 
