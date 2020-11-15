@@ -59,11 +59,10 @@ class DashboardController extends Controller
 
     public function editCourse(Course $course, Request $request)
     {
-        $user = Auth::user();
         if(Gate::allows('edit-course', $course)){
             return view('dashboard.edit-course', [
                 'course' => $course,
-                'user' => $user,
+                'user' => $request->user(),
                 'success' => $request->session()->get('success')
             ]);
         }
