@@ -9,7 +9,7 @@ class Classe extends Model
 {
     use HasFactory;
     public $timestamps = false;
-
+    
     public function video()
     {
         return $this->hasOne('App\Models\Video', 'class_id');

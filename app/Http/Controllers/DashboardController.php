@@ -23,9 +23,5 @@ class DashboardController extends Controller
         return view('dashboard.home',[
             'user' => $user
         ]);
-    }
-
-    
-
-    
+    }  
 }

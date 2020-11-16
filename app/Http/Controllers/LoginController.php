@@ -33,11 +33,8 @@ class LoginController extends Controller
             if(Auth::attempt($creds)) {
                 return redirect('/');
             } else {
-                $request->session()->flash('error', 'Nenhum úsuario encontrado com esses dados.');
-                return redirect('login');
+                return redirect('login')->with(['error' => 'Nenhum usuario encontrado com esses dados.']);
             }
-        }else {
-            return redirect('login');
         }
     }
 

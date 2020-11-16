@@ -11,4 +11,9 @@ class Course extends Model
     public $timestamps = false;
     protected $fillable = ['image', 'name', 'description'];
 
+    public function classes()
+    {
+        return $this->hasMany('App\Models\Classe', 'course_id');
+    }
+
 }

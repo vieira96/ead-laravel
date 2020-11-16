@@ -46,25 +46,6 @@ class CourseObserver
     
     }
 
-    // public function saving(Course $course)
-    // {
-    //     dd('ok lol');
-    //     if($course->image){
-    //         //lidando com a imagem
-    //         //redimensiona a imagem
-    //         $img = Image::make($course->image->path())->resize(500, null, function($constraint){
-    //             $constraint->aspectRatio();
-    //         });
-
-    //         $mime = explode('/', $img->mime());
-    //         $mime = '.'.$mime[1];
-            
-    //         $file_name = rand(0, 99999).time().rand(0,99999).$mime;
-    //         $img->save('../public/image/courses/'.$file_name, 80);
-    //         // imagem salva com um nome aleatorio na pasta
-    //     }
-    // }
-
     public function updating(Course $course)
     {
         $file_name = $course->getOriginal('image');
