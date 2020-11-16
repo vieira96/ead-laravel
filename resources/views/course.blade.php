@@ -28,7 +28,7 @@
 					@if($is_student)
 						<a class="transition duration-300 transform hover:-translate-y-1 hover:scale-110 text-white border p-2 rounded-3xl border-gray-300 mt-3 bg-gray-600" href="{{url('campus/'.$course->slug)}}">Ir para o curso</a>
 					@else
-						<a class="transition duration-300 transform hover:-translate-y-1 hover:scale-110 text-white border p-2 rounded-3xl border-gray-300 mt-3 bg-gray-600" href="{{url('course/'.$course->slug.'/signup')}}">Inscrever-se</a>
+						<a class="transition duration-300 transform hover:-translate-y-1 hover:scale-110 text-white border p-2 rounded-3xl border-gray-300 mt-3 bg-gray-600" href="{{url('course/'.$course->slug.'/subscribe')}}">Inscrever-se</a>
 					@endif
 				@else
 					<a class="transition duration-300 transform hover:-translate-y-1 hover:scale-110 text-white border p-2 rounded-3xl border-gray-300 mt-3 bg-gray-600" href="{{url('/register')}}">Cadastre-se para ter acesso ao curso</a>

@@ -21,7 +21,6 @@
     <div class="w-full lg:container lg:mx-auto">
         <h1 class=" text-2xl text-white font-light mt-6">Todos os nossos cursos</h1>
         <div class="flex flex-wrap justify-items-stretch mb-10 pl-3">
-
             @foreach($course_list as $course)
                 <div class="flex flex-col w-course mt-5">
                     <div class="w-full h-full flex flex-col">

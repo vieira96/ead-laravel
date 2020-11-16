@@ -40,7 +40,7 @@ Route::post('/edit', [UserController::class, 'editAction']);
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
 //CourseController
-Route::get('/course/{slug}/signup', [CourseController::class, 'signup']);
+Route::get('/course/{course}/subscribe', [CourseController::class, 'subscribe']);
 Route::get('/course/{slug}', [CourseController::class, 'courseInfo']);
 Route::get('/dashboard/courses', [CourseController::class, 'courses']);
 

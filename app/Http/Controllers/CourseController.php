@@ -12,11 +12,16 @@ use App\Models\Rating;
 use App\Models\Course;
 use App\Models\StudentCourse;
 
+use App\Services\CourseService;
+
 class CourseController extends Controller
 {
 
-    public function __construct()
+    protected $course_service;
+
+    public function __construct(CourseService $course_service)
     {
+        $this->course_service = $course_service;
         $this->middleware('auth', [
             'except' => 'courseInfo'
         ]);
@@ -31,7 +36,6 @@ class CourseController extends Controller
             return redirect('/');
         }
         
-        $ratings = Rating::select()->where('course_id', $course->id)->get();
         if($user){
             $is_student = StudentCourse::select()->where('course_id', $course->id)->where('student_id', $user->id)->first();
             if($is_student) {
@@ -39,6 +43,10 @@ class CourseController extends Controller
             }
         }
 
+        //pega as avaliações do curso
+        $ratings = Rating::select()->where('course_id', $course->id)->get();
+
+        //pega a media de avaliações para mostrar nas estrelas
         $rating_average = Rating::select()->where('course_id', $course->id)->avg('stars');
         $rating_average = round($rating_average);
 
@@ -51,41 +59,27 @@ class CourseController extends Controller
         ]);
     }
 
-    public function signup($slug)
+    public function subscribe($slug)
     {
         $user = Auth::user();
-        $course = Course::select()->where('slug', $slug)->first();
-        if($course) {
-            $is_student = StudentCourse::select()->where('course_id', $course->id)->where('student_id', $user->id)->first();
-            if($is_student) {
-                return redirect('/campus/'.$slug);
-            }
-            $new_course = new StudentCourse();
-            $new_course->course_id = $course->id;
-            $new_course->student_id = $user->id;
-            $new_course->save();
-            
-            return redirect('/campus/'.$slug);
+        if($this->course_service->signup($slug, $user)){
+            return redirect('campus/'.$slug);
         }
+        return back();
     }
 
     public function courses()
     {
-        $user = Auth::user();
-        $courses = Course::all();
-    
         return view('dashboard.courses', [
-            'courses' => $courses,
-            'user' => $user
+            'courses' => Course::all(),
+            'user' => Auth::user()
         ]);
     }
 
     public function newCourse()
     {
-        $user = Auth::user();
-
         return view('dashboard.new-course', [
-            'user' => $user
+            'user' => Auth::user()
         ]);
     }
 
@@ -111,23 +105,15 @@ class CourseController extends Controller
 
     public function editCourseAction(Course $course, CourseRequest $request)
     {   
-        if($course->update($request->validated())){
-            $request->session()->flash('success', 'Curso atualizado com sucesso');
+        if($this->course_service->update($course, $request)){
+            return back()->with(['success' => 'Curso atualizado com sucesso']);
         }
-        return redirect('/dashboard/course/'.$course->id.'/edit');
+        return back();
     }
 
     public function deleteCourse(Course $course)
     {
-        $response = Gate::inspect('delete', $course);
-        if($response->allowed()){
-            //deleta a imagem do curso antes de deletar o curso
-            //TODO: deletar todos os modulos do curso, mas farei dps de criar o delete de models
-            if(file_exists('../public/image/courses/'.$course->image)) {
-                unlink('../public/image/courses/'.$course->image);
-            }
-            $course->delete();
-        }
+        $this->course_service->delete($course);
         return redirect('/dashboard/courses');
     }
 }
