@@ -23,19 +23,23 @@ use App\Http\Controllers\ModuleController;
 |
 */
 
+//HomeController
 Route::get('/', [HomeController::class, 'index'])->name('home');
    
+//LoginController
 Route::get('/login', [LoginController::class, 'login'])->name('login');
 Route::post('/login', [LoginController::class, 'loginAction']);
 Route::get('/logout', [LoginController::class, 'logout']);
 
-
+//UserController
 Route::get('/register', [UserController::class, 'register'])->name('register');
 Route::post('/register', [UserController::class, 'registerAction']);
 Route::post('/edit', [UserController::class, 'editAction']);
 
+//ProfileController
 Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
+//CourseController
 Route::get('/course/{slug}/signup', [CourseController::class, 'signup']);
 Route::get('/course/{slug}', [CourseController::class, 'courseInfo']);
 Route::get('/dashboard/courses', [CourseController::class, 'courses']);
@@ -47,10 +51,13 @@ Route::get('/dashboard/course/{course}/edit', [CourseController::class, 'editCou
 Route::post('/dashboard/course/{course}/edit', [CourseController::class, 'editCourseAction']);
 
 Route::get('/dashboard/course/{course}/delete', [CourseController::class, 'deleteCourse']);
+// // // // // // // // /// /// // //// // // // // // // // /// /// // //// // // // // // //
 
+//CampusController
 Route::get('/campus', [CampusController::class, 'index'])->name('campus');
 Route::get('/campus/{slug}/{class_name?}', [CampusController::class, 'courseIndex']);
 
+//DashboardController
 Route::get('/dashboard', [DashboardController::class, 'index']);
 
 
