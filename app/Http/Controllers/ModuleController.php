@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
-class ModulesController extends Controller
+class ModuleController extends Controller
 {
     public function __construct()
     {
@@ -20,4 +20,6 @@ class ModulesController extends Controller
             'user' => $user
         ]);
     }
+
+    
 }

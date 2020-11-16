@@ -59,14 +59,14 @@ class DashboardController extends Controller
 
     public function editCourse(Course $course, Request $request)
     {
-        if(Gate::allows('edit-course', $course)){
+        $response = Gate::inspect('update', $course);
+        if($response->allowed()){
             return view('dashboard.edit-course', [
                 'course' => $course,
                 'user' => $request->user(),
                 'success' => $request->session()->get('success')
             ]);
         }
-        
         return redirect('/dashboard/courses');
     }
 
@@ -78,18 +78,16 @@ class DashboardController extends Controller
         return redirect('/dashboard/course/'.$course->id.'/edit');
     }
 
-    public function deleteCourse($id)
+    public function deleteCourse(Course $course)
     {
-        $course = Course::find($id);
-        if($course){
-            if(Gate::allows('delete-course', $course)){
-                //deleta a imagem do curso antes de deletar o curso
-                //TODO: deletar todos os modulos do curso, mas farei dps de criar o delete de models
-                if(file_exists('../public/image/courses/'.$course->image)) {
-                    unlink('../public/image/courses/'.$course->image);
-                }
-                $course->delete();
+        $response = Gate::inspect('delete', $course);
+        if($response->allowed()){
+            //deleta a imagem do curso antes de deletar o curso
+            //TODO: deletar todos os modulos do curso, mas farei dps de criar o delete de models
+            if(file_exists('../public/image/courses/'.$course->image)) {
+                unlink('../public/image/courses/'.$course->image);
             }
+            $course->delete();
         }
         return redirect('/dashboard/courses');
     }

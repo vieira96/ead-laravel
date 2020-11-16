@@ -9,7 +9,7 @@ use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CampusController;
 use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ModulesController;
+use App\Http\Controllers\ModuleController;
 
 
 /*
@@ -50,10 +50,6 @@ Route::post('/dashboard/new', [DashboardController::class, 'newCourseAction']);
 Route::get('/dashboard/course/{course}/edit', [DashboardController::class, 'editCourse']);
 Route::post('/dashboard/course/{course}/edit', [DashboardController::class, 'editCourseAction']);
 
-Route::get('/dashboard/course/{id}/delete', [DashboardController::class, 'deleteCourse']);
+Route::get('/dashboard/course/{course}/delete', [DashboardController::class, 'deleteCourse']);
 
-Route::get('/dashboard/course/{id}/modules', [ModulesController::class, 'modules']);
-
-Route::fallback(function () {
-    return view('404');
-});
+Route::get('/dashboard/course/{id}/modules', [ModuleController::class, 'modules']);
