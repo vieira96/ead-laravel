@@ -38,18 +38,20 @@ Route::get('/profile', [ProfileController::class, 'index'])->name('profile');
 
 Route::get('/course/{slug}/signup', [CourseController::class, 'signup']);
 Route::get('/course/{slug}', [CourseController::class, 'courseInfo']);
+Route::get('/dashboard/courses', [CourseController::class, 'courses']);
+
+Route::get('/dashboard/new', [CourseController::class, 'newCourse']);
+Route::post('/dashboard/new', [CourseController::class, 'newCourseAction']);
+
+Route::get('/dashboard/course/{course}/edit', [CourseController::class, 'editCourse']);
+Route::post('/dashboard/course/{course}/edit', [CourseController::class, 'editCourseAction']);
+
+Route::get('/dashboard/course/{course}/delete', [CourseController::class, 'deleteCourse']);
 
 Route::get('/campus', [CampusController::class, 'index'])->name('campus');
 Route::get('/campus/{slug}/{class_name?}', [CampusController::class, 'courseIndex']);
 
 Route::get('/dashboard', [DashboardController::class, 'index']);
-Route::get('/dashboard/courses', [DashboardController::class, 'courses']);
-Route::get('/dashboard/new', [DashboardController::class, 'newCourse']);
-Route::post('/dashboard/new', [DashboardController::class, 'newCourseAction']);
 
-Route::get('/dashboard/course/{course}/edit', [DashboardController::class, 'editCourse']);
-Route::post('/dashboard/course/{course}/edit', [DashboardController::class, 'editCourseAction']);
-
-Route::get('/dashboard/course/{course}/delete', [DashboardController::class, 'deleteCourse']);
 
 Route::get('/dashboard/course/{id}/modules', [ModuleController::class, 'modules']);
