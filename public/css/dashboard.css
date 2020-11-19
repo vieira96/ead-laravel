@@ -294,12 +294,24 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    margin: 5px;
 }
 
 .success {
     background-color: #f0fff4;
     border: 1px solid #68d391;
     color: #2f855a;
+}
+
+.error {
+    background-color: #c23232;
+    border: 1px solid #ff0000;
+    color: #fff;
+}
+
+.light {
+    border: 1px solid #ccc;
 }
 
 .danger {
@@ -331,14 +343,14 @@
     display: flex;
 }
 
-.modules-options {
+.module-options {
     flex: 1;
     display: flex;
     justify-content: flex-end;
     align-items: center;
 }
 
-.modules-options a {
+.module-options a {
     text-decoration: none;
     color: #ccc;
     padding: 10px;
@@ -347,7 +359,21 @@
    
 }
 
-.new-module {
+.module-name {
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.module-name span {
+    font-size: 22px;
+    color: #ccc;
+    margin-left: 10px;
+    font-weight: 300;
+}
+
+.new-module-container {
     width: 100%; 
     height: 40px; 
     margin: 5px;
@@ -355,12 +381,84 @@
     justify-content: flex-end;
 }
 
-.new-module a {
+.new-module-container a {
     text-decoration: none;
     color: #ccc;
     padding: 10px;
     border: 1px solid #232323;
 }
+
+.new-module {
+    width: 100%;
+    height: 100vh;
+    display: none;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    background-color: rgba(0, 0, 0, 0.7);
+    left: 0;
+}
+
+.new-module form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+}
+
+.input-group {
+    display: flex;
+    flex-direction: column;
+    width: 320px;
+    margin-bottom: 10px;
+}
+
+.input-group label {
+    font-size: 23px;
+    color: #ccc;
+    margin-bottom: 5px;
+}
+
+.input-group input {
+    width: 100%;
+    height: 35px;
+    border-radius: 10px;
+    border: 0;
+    padding: 5px;
+    font-size: 16px;
+}
+
+.input-group input:focus {
+    outline: 0;
+}
+
+.send-cancel {
+    width: 320px;
+    display: flex;
+}
+
+.send-cancel input[type=submit] {
+    margin-right: 5px;
+    border-radius: 10px;
+    cursor: pointer;
+    color: #fff;
+    background-color: #2f855a;
+    border: 0;
+}
+
+.send-cancel a {
+    text-decoration: none;
+    color: #ccc;
+    margin-right: 5px;
+    border-radius: 10px;
+}
+
+.btn {
+    padding: 10px;
+    cursor: pointer;
+}
+
+
 
 @media (max-width: 1024px) {
     .item {

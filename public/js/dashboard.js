@@ -9,3 +9,14 @@ faBars.addEventListener('click', function(){
         faBars.style.left = 280 + 'px';
     }
 });
+
+function openForm(){
+    var form = document.querySelector('.new-module');
+    form.style.display = 'flex';
+    form.style.position = "fixed";
+}
+
+function closeForm(){
+    var form = document.querySelector('.new-module');
+    form.style.display = 'none';
+}
