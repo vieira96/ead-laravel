@@ -3,6 +3,8 @@
 namespace App\Services;
 
 use App\Http\Requests\ModuleRequest;
+use Illuminate\Support\Facades\Gate;
+use Illuminate\Support\Facades\Auth;
 
 use App\Models\Course;
 use App\Models\Module;
@@ -17,5 +19,13 @@ class ModuleService {
         $new_module->name = $request->input('name');
         $new_module->course_id = $course->id;
         $new_module->save();
+    }
+
+    public function delete(Module $module, Course $course)
+    {
+        $response = Gate::inspect('delete', [$module, $course]);
+        if($response->allowed()){
+            $module->delete();
+        }
     }
 }

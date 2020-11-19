@@ -21,7 +21,7 @@
                     <div class="module-options">
                         <a href="">Exibir aulas</a>
                         <a href="">Editar modulo</a>
-                        <a href="">Excluir modulo</a>
+                        <a href="{{url('dashboard/course/'.$course->id.'/module/'.$module->id.'/delete')}}">Excluir modulo</a>
                     </div>
                 </div>
             @endforeach
@@ -31,7 +31,7 @@
             </div>
 
             <div class="new-module">
-                <form method="POST" action="{{url('dashboard/course/'.$course->id.'/new')}}">
+                <form method="POST" action="{{url('dashboard/course/'.$course->id.'/modules/new')}}">
                     @csrf
                     <div class="input-group">
                         <label for="name">Nome do módulo</label>

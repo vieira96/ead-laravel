@@ -59,5 +59,8 @@ Route::get('/campus/{slug}/{class_name?}', [CampusController::class, 'courseInde
 
 //DashboardController
 Route::get('/dashboard', [DashboardController::class, 'index']);
+
+//ModuleController
 Route::get('/dashboard/course/{course}/modules', [ModuleController::class, 'modules']);
-Route::post('/dashboard/course/{course}/new', [ModuleController::class, 'newAction']);
+Route::post('/dashboard/course/{course}/modules/new', [ModuleController::class, 'newAction']);
+Route::get('/dashboard/course/{course}/module/{module}/delete', [ModuleController::class, 'del']);

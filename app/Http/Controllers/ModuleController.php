@@ -10,8 +10,8 @@ use App\Models\Module;
 
 use App\Services\ModuleService;
 
-
 use App\Http\Requests\ModuleRequest;
+
 class ModuleController extends Controller
 {
     protected $module_service;
@@ -37,6 +37,12 @@ class ModuleController extends Controller
     public function newAction(ModuleRequest $request, Course $course)
     {
         $this->module_service->new($request, $course);
+        return redirect()->back();
+    }
+
+    public function del(Course $course, Module $module)
+    {
+        $this->module_service->delete($module, $course);
         return redirect()->back();
     }
     
