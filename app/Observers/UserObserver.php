@@ -19,6 +19,7 @@ class UserObserver
     public function creating(User $user)
     {
         $user->password = Hash::make($user->password);
+        $user->office = 0;
     }
 
     /**
