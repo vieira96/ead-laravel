@@ -59,8 +59,7 @@ class ModulePolicy
      */
     public function update(User $user, Module $module, Course $course)
     {
-        dd('ok module');
-        return $course->owner_id == $user->id || $user->office > 1; 
+        return $user->office > 1 || $course->owner_id === $user->id; 
     }
 
     /**

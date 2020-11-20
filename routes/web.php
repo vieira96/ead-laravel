@@ -64,3 +64,5 @@ Route::get('/dashboard', [DashboardController::class, 'index']);
 Route::get('/dashboard/course/{course}/modules', [ModuleController::class, 'modules']);
 Route::post('/dashboard/course/{course}/modules/new', [ModuleController::class, 'newAction']);
 Route::get('/dashboard/course/{course}/module/{module}/delete', [ModuleController::class, 'del']);
+Route::get('/dashboard/course/{course}/module/{module}/edit', [ModuleController::class, 'edit'])->middleware('can:update,module,course');
+Route::post('/dashboard/course/{course}/module/{module}/edit', [ModuleController::class, 'editAction']);

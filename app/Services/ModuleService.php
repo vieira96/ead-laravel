@@ -28,4 +28,11 @@ class ModuleService {
             $module->delete();
         }
     }
+
+    public function update(Module $module, array $data)
+    {
+        $module->name = $data['name'];
+        $module->save();
+        return true;
+    }
 }

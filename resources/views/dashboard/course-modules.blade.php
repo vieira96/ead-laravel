@@ -13,6 +13,12 @@
                     </div>
                 @endforeach
             @endif
+
+            @if(!empty($success))
+                <div class="alert success">
+                    {{$success}}
+                </div>
+            @endif
             @foreach($modules as $module)
                 <div class="module-single">
                     <div class="module-name">
@@ -20,14 +26,14 @@
                     </div>
                     <div class="module-options">
                         <a href="">Exibir aulas</a>
-                        <a href="">Editar modulo</a>
+                        <a href="{{url('dashboard/course/'.$course->id.'/module/'.$module->id.'/edit')}}">Editar modulo</a>
                         <a href="{{url('dashboard/course/'.$course->id.'/module/'.$module->id.'/delete')}}">Excluir modulo</a>
                     </div>
                 </div>
             @endforeach
            
             <div class="new-module-container">
-                <a class="btn" onclick="openForm()">Adicionar novo módulo</a>
+                <a class="btn" onclick="openForm()">Criar novo módulo</a>
             </div>
 
             <div class="new-module">

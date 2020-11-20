@@ -4,7 +4,6 @@ namespace App\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-
 use App\Models\Modules;
 
 class ModuleRequest extends FormRequest
@@ -39,7 +38,7 @@ class ModuleRequest extends FormRequest
         return [
             'name.unique' => "Já existe um modulo com esse nome.",
             'name.required' => "O nome do módulo é obrigatório.",
-            'name.max' => "Ultrapassou o limite de 255 caracteres."
+            'name.max' => "Ultrapassou o limite de 255 caracteres.",            
         ];
     }
 }
