@@ -11,12 +11,12 @@ faBars.addEventListener('click', function(){
 });
 
 function openForm(){
-    var form = document.querySelector('.new-module');
+    var form = document.querySelector('.new');
     form.style.display = 'flex';
     form.style.position = "fixed";
 }
 
 function closeForm(){
-    var form = document.querySelector('.new-module');
+    var form = document.querySelector('.new');
     form.style.display = 'none';
 }

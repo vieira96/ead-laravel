@@ -59,7 +59,7 @@
                             <span class="module flex justify-between items-center text-white shadow shadow-lg"><span>{{$module->name}}</span> <span class="text-gray-500">{{count($module->classes)}}</span></span>
                             <div class="class w-full flex flex-col p-5 pt-2">
                                 @foreach($module->classes as $class_single)
-                                    <a class="class-single w-full shadow shadow-lg flex justify-center items-center" href="{{url('campus/'.$course->slug.'/'.$class_single->name)}}">{{str_replace('-',' ',$class_single->name)}}</a>
+                                    <a class="class-single w-full shadow shadow-lg flex justify-center items-center" href="{{url('campus/'.$course->slug.'/'.$class_single->id)}}">{{$class_single->name}}</a>
                                 @endforeach
                             </div>
                         </div>
@@ -70,12 +70,11 @@
         </aside>
 
         <div class="menu"></div>
-        <div class="main flex justify-center items-center">
-            @if($class)
-                <div style="width: 90%; height: 80vh;">
-                    <iframe width="100%" height="100%" src="{{$class->video->url}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
-                </div>
-            @endif
+        <div class="main flex flex-col justify-center items-center">
+            <div style="width: 90%" class="flex h-10 mb-3 mt-3 items-center text-white"><span       class="mr-10">Modulo: {{$class->module_id}}</span><span>Aula: {{$class->id}}</span></div>
+            <div style="width: 90%; height: 80vh;">
+                <iframe width="100%" height="100%" src="{{$class->video}}" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+            </div>
         </div>
     </main>
 

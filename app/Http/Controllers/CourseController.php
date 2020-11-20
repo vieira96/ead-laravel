@@ -25,6 +25,11 @@ class CourseController extends Controller
         $this->middleware('auth', [
             'except' => 'courseInfo'
         ]);
+
+        $this->middleware('administrator', [
+            'except' => ['courseInfo', 'subscribe']
+        ]);
+
     }
 
     public function courseInfo($slug)

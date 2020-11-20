@@ -10,6 +10,7 @@ use App\Http\Controllers\CourseController;
 use App\Http\Controllers\CampusController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\ModuleController;
+use App\Http\Controllers\ClassController;
 
 
 /*
@@ -55,7 +56,7 @@ Route::get('/dashboard/course/{course}/delete', [CourseController::class, 'delet
 
 //CampusController
 Route::get('/campus', [CampusController::class, 'index'])->name('campus');
-Route::get('/campus/{slug}/{class_name?}', [CampusController::class, 'courseIndex']);
+Route::get('/campus/{slug}/{class?}', [CampusController::class, 'courseIndex']);
 
 //DashboardController
 Route::get('/dashboard', [DashboardController::class, 'index']);
@@ -66,3 +67,7 @@ Route::post('/dashboard/course/{course}/modules/new', [ModuleController::class, 
 Route::get('/dashboard/course/{course}/module/{module}/delete', [ModuleController::class, 'del']);
 Route::get('/dashboard/course/{course}/module/{module}/edit', [ModuleController::class, 'edit'])->middleware('can:update,module,course');
 Route::post('/dashboard/course/{course}/module/{module}/edit', [ModuleController::class, 'editAction']);
+
+//ClassController
+Route::get('/dashboard/course/{course}/module/{module}/classes', [ClassController::class, 'classes']);
+Route::post('/dashboard/course/{course}/module/{module}/class/new', [ClassController::class, 'new']);

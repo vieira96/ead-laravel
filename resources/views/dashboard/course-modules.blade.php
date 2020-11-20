@@ -25,7 +25,7 @@
                         <span>{{$module->name}}</span>
                     </div>
                     <div class="module-options">
-                        <a href="">Exibir aulas</a>
+                        <a href="{{url('dashboard/course/'.$course->id.'/module/'.$module->id.'/classes')}}">Exibir aulas</a>
                         <a href="{{url('dashboard/course/'.$course->id.'/module/'.$module->id.'/edit')}}">Editar modulo</a>
                         <a href="{{url('dashboard/course/'.$course->id.'/module/'.$module->id.'/delete')}}">Excluir modulo</a>
                     </div>
@@ -36,7 +36,7 @@
                 <a class="btn" onclick="openForm()">Criar novo módulo</a>
             </div>
 
-            <div class="new-module">
+            <div class="new">
                 <form method="POST" action="{{url('dashboard/course/'.$course->id.'/modules/new')}}">
                     @csrf
                     <div class="input-group">

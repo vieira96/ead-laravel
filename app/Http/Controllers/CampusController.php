@@ -38,29 +38,25 @@ class CampusController extends Controller
             'all_courses' => $courses,
             'course_list' => $student_courses
         ]);
-    }
+    }   
 
-    public function courseIndex($slug, $class_name = null)
+    public function courseIndex($slug, Classe $class = null)
     {
         $user = Auth::user();
         $course = Course::select()->where('slug', $slug)->first();
-        $modules = Module::select()->where('course_id', $course->id)->get(); 
-        
+        $modules = Module::select()->where('course_id', $course->id)->get();    
         foreach($modules as $moduleKey => $moduleData) {
             //crio a chave das aulas e adiciono no modulo
             $modules[$moduleKey]['classes'] = Classe::select()->where('module_id', $moduleData['id'])->get();
         }
 
-        if($class_name) {
-            $class = Classe::select()->where('name', $class_name)->first();
-            if($class) {
-                $class->video = $class->video;
-            } else {
+        if($class) {
+            $class = Classe::select()->where('id', $class->id)->where('course_id', $course->id)->first();
+            if(!$class) {
                 return redirect('campus');
             }
         } else {
             $class = Classe::where('course_id', $course->id)->first();
-            $class->video = $class->video;
         }
         
 
